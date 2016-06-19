@@ -86,7 +86,7 @@ To build and preview the website, use:
 
 [source,bash]
 ----
-$ sh build.sh
+$ sh preview.sh
 ----
 
 or in long-hand:
