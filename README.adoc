@@ -80,31 +80,23 @@ link:http://lab.hakim.se/reveal-js/[reveal.js] as the rendering backend.  Why?  
 documentation is all written using AsciiDoctor, and I wanted to learn how to write presentations using the approach
 also.
 
-To create the website, use:
+== To build and preview
+
+To build and preview the website, use:
 
 [source,bash]
 ----
-./gradlew clean asciidoctor
+$ sh build.sh
 ----
 
-
-== To preview
-
-To view the website, use:
+or in long-hand:
 
 [source,bash]
 ----
-$ sh httpd.sh
+./gradlew clean asciidoctor && cd build/asciidoc/revealjs && python -m SimpleHTTPServer 8000
 ----
 
-or simply:
-
-[source,bash]
-----
-cd build/asciidoc/revealjs && python -m SimpleHTTPServer 8000
-----
-
-and then open link:http://localhost:8000/index.html[http://localhost:8000/index.html]
+Then open link:http://localhost:8000/index.html[http://localhost:8000/index.html]
 
 
 
