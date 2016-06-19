@@ -59,7 +59,7 @@ asciidoctor {
     dependsOn jrubyPrepare
 
 	sources {
-		include 'example-deck.adoc'
+		include 'index.adoc'
 	}
 
 	resources {

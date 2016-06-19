@@ -1,8 +1,8 @@
-= Example Deck
-Doc Writer <doc.writer@example.org>
-2014-09-09
-:revnumber: {project-version}
-:example-caption!:
+= Naked Objects: 14 Years On
+Dan Haywood <dan@haywood-associates.co.uk>
+2016-06-28
+:backend: revealjs
+:revealjs_theme: solarized
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../java]
 
