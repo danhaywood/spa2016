@@ -93,7 +93,7 @@ or in long-hand:
 
 [source,bash]
 ----
-./gradlew clean asciidoctor && cd build/asciidoc/revealjs && python -m SimpleHTTPServer 8000
+./gradlew --offline clean asciidoctor && pushd build/asciidoc/revealjs && python -m SimpleHTTPServer 8000
 ----
 
 Then open link:http://localhost:8000/index.html[http://localhost:8000/index.html]
