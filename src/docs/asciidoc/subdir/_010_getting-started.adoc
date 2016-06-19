@@ -1,0 +1,11 @@
+== Getting Started
+
+* Apache Isis is a Java framework that uses link:http://wicket.apache.org[Apache Wicket] and
+link:http://resteasy.jboss.org/[JBoss RestEasy] (JAX-RS) for its presentation layer, and link:http://datanucleus.org[DataNucleus] for its persistence layer (using link:http://www.datanucleus.org/products/datanucleus/jdo/api.html[JDO]).
+
+* To use Apache Isis you don't need to know any Wicket or JAX-RS, but you will over time become familiar with
+DataNucleus' link:http://www.datanucleus.org/products/datanucleus/jdo/annotations.html[JDO annotations].
+
+* Apache Isis is itself built using link:http://maven.apache.org[Apache Maven], and the framework provides a Maven archetype as the starting point for your own domain applications built on top of the framework.
+
+

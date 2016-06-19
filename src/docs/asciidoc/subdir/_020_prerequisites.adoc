@@ -1,0 +1,44 @@
+== Prerequisites
+
+* Java and Maven
+* An IDE
+* Documentation bookmarks
+
+
+
+=== JDK and Maven
+
+* You'll need JDK 8 (preferred) or 7
+
+** Download link:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Java 8 JDK] or link:http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html[Java 7 JDK]
+
+* You'll also need Apache Maven installed, with `mvn` on your `$PATH`
+
+** Download link:https://maven.apache.org/download.cgi[Apache Maven 3.x]
+
+
+
+=== IDEs
+
+* We strongly recommend you use an IDE
+
+* Most of the Apache Isis committers use IntelliJ (community edition is fine) or Eclipse, but use one with which you are familiar.
+
+** IntelliJ link:https://www.jetbrains.com/idea/download[download], link:http://isis.apache.org/guides/dg.html#_dg_ide_intellij_file-templates[file templates], link:http://isis.apache.org/guides/dg.html#_dg_ide_intellij_live-templates[live templates]
+
+** Eclipse link:https://eclipse.org/downloads/[download], link:http://isis.apache.org/guides/dg.html#_dg_ide_eclipse_editor-templates[editor templates]
+
+* If using Eclipse, you'll also require the link:http://isis.apache.org/guides/dg.html#_add_datanucleus_support[DataNucleus plugin]
+
+
+
+=== Documentation
+
+Worth bookmarking/downloading:
+
+* link:http://isis.apache.org/documentation.html[Apache Isis documentation] page.
+* link:http://isis.apache.org/cheat-sheet.html[Cheat sheet]
+* link:http://isis.apache.org/screencasts.html[Screencasts]
+
+
+

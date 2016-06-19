@@ -22,120 +22,29 @@ link:http://lab.hakim.se/reveal-js/[reveal.js] as the rendering backend.
 
 
 
-== Getting Started
-
-* Apache Isis is a Java framework that uses link:http://wicket.apache.org[Apache Wicket] and
-link:http://resteasy.jboss.org/[JBoss RestEasy] (JAX-RS) for its presentation layer, and link:http://datanucleus.org[DataNucleus] for its persistence layer (using link:http://www.datanucleus.org/products/datanucleus/jdo/api.html[JDO]).
-
-* To use Apache Isis you don't need to know any Wicket or JAX-RS, but you will over time become familiar with
-DataNucleus' link:http://www.datanucleus.org/products/datanucleus/jdo/annotations.html[JDO annotations].
-
-* Apache Isis is itself built using link:http://maven.apache.org[Apache Maven], and the framework provides a Maven archetype as the starting point for your own domain applications built on top of the framework.
 
 
+include::subdir/_010_getting-started.adoc[]
 
-== Prerequisites
+include::subdir/_020_prerequisites.adoc[]
 
-* Java and Maven
-* An IDE
-* Documentation bookmarks
+include::subdir/_030_simpleapp-archetype.adoc[]
 
+include::subdir/_040_domain-entities.adoc[]
 
-
-=== JDK and Maven
-
-* You'll need JDK 8 (preferred) or 7
-
-** Download link:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Java 8 JDK] or link:http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html[Java 7 JDK]
-
-* You'll also need Apache Maven installed, with `mvn` on your `$PATH`
-
-** Download link:https://maven.apache.org/download.cgi[Apache Maven 3.x]
-
-
-
-=== IDEs
-
-* We strongly recommend you use an IDE
-
-* Most of the Apache Isis committers use IntelliJ (community edition is fine) or Eclipse, but use one with which you are familiar.
-
-** IntelliJ link:https://www.jetbrains.com/idea/download[download], link:http://isis.apache.org/guides/dg.html#_dg_ide_intellij_file-templates[file templates], link:http://isis.apache.org/guides/dg.html#_dg_ide_intellij_live-templates[live templates]
-
-** Eclipse link:https://eclipse.org/downloads/[download], link:http://isis.apache.org/guides/dg.html#_dg_ide_eclipse_editor-templates[editor templates]
-
-* If using Eclipse, you'll also require the link:http://isis.apache.org/guides/dg.html#_add_datanucleus_support[DataNucleus plugin]
-
-
-
-=== Documentation
-
-Worth bookmarking/downloading:
-
-* link:http://isis.apache.org/documentation.html[Apache Isis documentation] page.
-* link:http://isis.apache.org/cheat-sheet.html[Cheat sheet]
-* link:http://isis.apache.org/screencasts.html[Screencasts]
+include::subdir/_050_associations.adoc[]
 
 
 
 
-== Simpleapp archetype
-
-* Use the `simpleapp` archetype to link:http://isis.apache.org/guides/ugfun.html#_generating_the_app[generate] a new empty application
-
-[source,bash]
-----
-mvn archetype:generate  \
-    -D archetypeGroupId=org.apache.isis.archetype \
-    -D archetypeArtifactId=simpleapp-archetype \
-    -D archetypeVersion=1.12.2 \
-    -D groupId=com.mycompany \
-    -D artifactId=myapp \
-    -D version=1.0-SNAPSHOT \
-    -B
-----
-
-Explore the app once generated (multiple subdirectories)
-
-
-=== Build the app
-
-* The newly generated app can be link:http://isis.apache.org/guides/ugfun.html#_building_the_app[built] from the command{nbsp}line:
-
-[source,bash]
-----
-cd myapp
-mvn clean install
-----
-
-* Better still though is to import the app into the IDE
-** link:http://isis.apache.org/guides/dg.html#_dg_ide_intellij_importing-maven-modules[IntelliJ]
-** link:http://isis.apache.org/guides/dg.html#_dg_ide_eclipse_importing-the-project[Eclipse]
-
-
-
-=== Running the app
-
-* Run the app from the command line
-** using link:http://isis.apache.org/guides/ugfun.html#_using_mvn_jetty_plugin[mvn jetty plugin]
-
-* Run the app from the IDE
-** using a link:http://isis.apache.org/guides/ugfun.html#_from_within_the_ide[launch configuration]).
-
-[TIP]
-====
-It's worth spending the time learning how to run the app from the IDE.  In particular, get to grips with the
-DataNucleus Enhancer.
-====
-
-
-
-== Domain Entities
+== Actions
 
 
 
 
-== Repositories
+== Repository Implementations
+
+=== Naive Implementations
 
 
 === JDOQL
@@ -146,31 +55,66 @@ DataNucleus Enhancer.
 
 === See it?
 
-==== abc
-
-==== def
-
 
 === Use it?
 
+
 === Do it?
+
+
+
+== Choices and AutoComplete
+
+
+
+== User Messages
 
 
 
 == Fixture scripts
 
 
-== View Models
-
-
-== Decoupling
-
-
 
 == Unit testing
 
 
+
 == Integration testing
 
+
+
+== View Models
+
+
+
+== Home page
+
+
+
+== Domain Service APIs
+
+
+
+
+== Decoupling
+
+=== Event subscribers
+
+
+=== Mixins
+
+
+
+== Domain Services SPIs
+
+
+
+== Add-ons
+
+
+
+== Customisations
+
+=== CSS
 
 

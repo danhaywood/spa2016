@@ -1,0 +1,72 @@
+== Domain Entities
+
+* Domain entities are the building blocks of Apache Isis applications, being the persistent objects with which
+end-users view and interact
+
+* From a programming perspective, they are basically pojos, with some JDO annotations
+
+
+=== Renaming `SimpleObject`
+
+* Rename `SimpleObject` to a core entity of your domain
+** eg to `Customer`
+** rename class name in JDOQL annotations also
+
+* rename corresponding `SimpleObjects` repository also
+** eg `Customers`
+
+* rename the `RecreateSimpleObjects` fixture
+** eg `RecreateCustomers`
+
+
+
+
+=== Scalar properties
+
+* Properties are defined as a normal link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_get[getter]/link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_set[setter] pair
+** normally used by both Apache Isis (for the UI) and by DataNucleus (for the DB)
+
+* The link:http://isis.apache.org/guides/rgcms.html#_rgcms_classes_value-types[property's type] can be
+a primitive, a wrapper type, a Joda time type, or an Isis-specific type (eg ``Blob``/``Clob``)
+
+* You may need to add some JDO-specific annotations
+** typically link:https://isis.apache.org/guides/rgant.html#_rgant-Column[`@Column(allowsNull=...)`]
+** if problems, a validation failure is thrown at start-up
+
+
+
+=== Project Lombok
+
+* You can also use link:https://isis.apache.org/guides/dg.html#_dg_project-lombok[Project Lombok] to remove the getter/setters
+
+* Usually as simple as adding the mvn dependency: +
++
+[source,xml]
+----
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.16.6</version>
+</dependency>
+----
+
+* See also this link:https://www.youtube.com/watch?v=SLJPBruFMKY[screencast].
+
+
+=== Titles and icons
+
+
+
+
+
+
+
+
+
+=== Layouts
+
+`layout.xml`
+
+
+
+

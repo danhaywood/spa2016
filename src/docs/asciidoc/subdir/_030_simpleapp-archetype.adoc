@@ -1,0 +1,62 @@
+== Simpleapp archetype
+
+* Use the `simpleapp` archetype to link:http://isis.apache.org/guides/ugfun.html#_generating_the_app[generate] a new empty application
+
+[source,bash]
+----
+mvn archetype:generate  \
+    -D archetypeGroupId=org.apache.isis.archetype \
+    -D archetypeArtifactId=simpleapp-archetype \
+    -D archetypeVersion=1.12.2 \
+    -D groupId=com.mycompany \
+    -D artifactId=myapp \
+    -D version=1.0-SNAPSHOT \
+    -B
+----
+
+
+
+=== Build the app
+
+* The newly generated app can be link:http://isis.apache.org/guides/ugfun.html#_building_the_app[built] from the command{nbsp}line: +
++
+[source,bash]
+----
+cd myapp
+mvn clean install
+----
+
+* Better still though is to import the app into the IDE
+** link:http://isis.apache.org/guides/dg.html#_dg_ide_intellij_importing-maven-modules[IntelliJ]
+** link:http://isis.apache.org/guides/dg.html#_dg_ide_eclipse_importing-the-project[Eclipse]
+
+
+
+=== Run the app
+
+* Run the app from the command line
+** using link:http://isis.apache.org/guides/ugfun.html#_using_mvn_jetty_plugin[mvn jetty plugin]
+
+* Run the app from the IDE
+** using a link:http://isis.apache.org/guides/ugfun.html#_from_within_the_ide[launch configuration]).
+** get to grips with the DataNucleus Enhancer
+
+
+
+=== Explore the Generated App
+
+* the `dom` mvn module holds the domain object model
+** `SimpleObject` is a domain entity
+** `SimpleObjects` is corresponding repository/menu
+
+* The `fixtures` module defines fixtures for use in prototyping and tests
+** by default, run in-memory HSQLDB
+** `RecreateSimpleObjects` creates a complete set of entities
+
+
+=== Explore the Generated App (ctd)
+
+* the `integtests` module holds end-to-end integration tests running against in-memory DB and using the fixture script
+* the `app` module defines a subclass of the `AppManifest` class, defining the "scope" of the application
+* the `webapp` module contains `WEB-INF/web.xml` etc
+** `WEB-INF/isis.properties` and related files configure the framework
