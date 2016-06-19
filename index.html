@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="author" content="Dan Haywood &amp; Jeroen van der Wal" /><title>Naked&#160;Objects: 14&#160;Years&#160;On</title><meta content="yes" name="apple-mobile-web-app-capable" /><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" /><link href="reveal.js/css/reveal.css" rel="stylesheet" /><link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" /><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{color:rgba(0,0,0,.4)}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top;line-height:1.45}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet" /><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script></head><body><div class="reveal"><div class="slides"><section><h1>Naked&#160;Objects: 14&#160;Years&#160;On</h1><p><small>Dan Haywood &amp; Jeroen van der Wal</small></p></section><section id="about-this-tutorial"><h2>About this tutorial</h2><div class="ulist"><ul><li><p>This tutorial has been written using <a href="http://asciidoctor.org">AsciiDoctor</a> with
+<a href="http://lab.hakim.se/reveal-js/">reveal.js</a> as the rendering backend.</p></li><li><p>Use the arrow keys to move from topic to topic</p><div class="ulist"><ul><li><p>&#8595; to the detail on current topic</p></li><li><p>&#8592; and &#8594; for prev/next topic,</p></li><li><p>see the legend bottom right to see which direction(s) you can traverse</p></li></ul></div></li><li><p>Press <code><strong>esc</strong></code> to go to an overview of the entire slide deck</p></li></ul></div></section>
+<section id="getting-started"><h2>Getting Started</h2><div class="ulist"><ul><li><p>Apache Isis is a Java framework that uses <a href="http://wicket.apache.org">Apache Wicket</a> and
+<a href="http://resteasy.jboss.org/">JBoss RestEasy</a> (JAX-RS) for its presentation layer, and <a href="http://datanucleus.org">DataNucleus</a> for its persistence layer (using <a href="http://www.datanucleus.org/products/datanucleus/jdo/api.html">JDO</a>).</p></li><li><p>To use Apache Isis you don&#8217;t need to know any Wicket or JAX-RS, but you will over time become familiar with
+DataNucleus' <a href="http://www.datanucleus.org/products/datanucleus/jdo/annotations.html">JDO annotations</a>.</p></li><li><p>Apache Isis is itself built using <a href="http://maven.apache.org">Apache Maven</a>, and the framework provides a Maven archetype as the starting point for your own domain applications built on top of the framework.</p></li></ul></div></section>
+<section><section id="prerequisites"><h2>Prerequisites</h2><div class="ulist"><ul><li><p>Java and Maven</p></li><li><p>An IDE</p></li><li><p>Documentation bookmarks</p></li></ul></div></section><section id="jdk-and-maven"><h2>JDK and Maven</h2><div class="ulist"><ul><li><p>You&#8217;ll need JDK 8 (preferred) or 7</p><div class="ulist"><ul><li><p>Download <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java 8 JDK</a> or <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java 7 JDK</a></p></li></ul></div></li><li><p>You&#8217;ll also need Apache Maven installed, with <code>mvn</code> on your <code>$PATH</code></p><div class="ulist"><ul><li><p>Download <a href="https://maven.apache.org/download.cgi">Apache Maven 3.x</a></p></li></ul></div></li></ul></div></section><section id="ides"><h2>IDEs</h2><div class="ulist"><ul><li><p>We strongly recommend you use an IDE</p></li><li><p>Most of the Apache Isis committers use IntelliJ (community edition is fine) or Eclipse, but use one with which you are familiar.</p><div class="ulist"><ul><li><p>IntelliJ <a href="https://www.jetbrains.com/idea/download">download</a>, <a href="http://isis.apache.org/guides/dg.html#_dg_ide_intellij_file-templates">file templates</a>, <a href="http://isis.apache.org/guides/dg.html#_dg_ide_intellij_live-templates">live templates</a></p></li><li><p>Eclipse <a href="https://eclipse.org/downloads/">download</a>, <a href="http://isis.apache.org/guides/dg.html#_dg_ide_eclipse_editor-templates">editor templates</a></p></li></ul></div></li><li><p>If using Eclipse, you&#8217;ll also require the <a href="http://isis.apache.org/guides/dg.html#_add_datanucleus_support">DataNucleus plugin</a></p></li></ul></div></section><section id="documentation"><h2>Documentation</h2><div class="paragraph"><p>Worth bookmarking/downloading:</p></div>
+<div class="ulist"><ul><li><p><a href="http://isis.apache.org/documentation.html">Apache Isis documentation</a> page.</p></li><li><p><a href="http://isis.apache.org/cheat-sheet.html">Cheat sheet</a></p></li><li><p><a href="http://isis.apache.org/screencasts.html">Screencasts</a></p></li></ul></div></section></section>
+<section><section id="simpleapp-archetype"><h2>Simpleapp archetype</h2><div class="ulist"><ul><li><p>Use the <code>simpleapp</code> archetype to <a href="http://isis.apache.org/guides/ugfun.html#_generating_the_app">generate</a> a new empty application</p></li></ul></div><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="bash language-bash">mvn archetype:generate  \
+    -D archetypeGroupId=org.apache.isis.archetype \
+    -D archetypeArtifactId=simpleapp-archetype \
+    -D archetypeVersion=1.12.2 \
+    -D groupId=com.mycompany \
+    -D artifactId=myapp \
+    -D version=1.0-SNAPSHOT \
+    -B</code></pre></div></div></section><section id="build-the-app"><h2>Build the app</h2><div class="ulist"><ul><li><p>The newly generated app can be <a href="http://isis.apache.org/guides/ugfun.html#_building_the_app">built</a> from the command&#160;line:<br /></p><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="bash language-bash">cd myapp
+mvn clean install</code></pre></div></div></li><li><p>Better still though is to import the app into the IDE</p><div class="ulist"><ul><li><p><a href="http://isis.apache.org/guides/dg.html#_dg_ide_intellij_importing-maven-modules">IntelliJ</a></p></li><li><p><a href="http://isis.apache.org/guides/dg.html#_dg_ide_eclipse_importing-the-project">Eclipse</a></p></li></ul></div></li></ul></div></section><section id="run-the-app"><h2>Run the app</h2><div class="ulist"><ul><li><p>Run the app from the command line</p><div class="ulist"><ul><li><p>using <a href="http://isis.apache.org/guides/ugfun.html#_using_mvn_jetty_plugin">mvn jetty plugin</a></p></li></ul></div></li><li><p>Run the app from the IDE</p><div class="ulist"><ul><li><p>using a <a href="http://isis.apache.org/guides/ugfun.html#_from_within_the_ide">launch configuration</a>).</p></li><li><p>Get to grips with the DataNucleus Enhancer.</p></li></ul></div></li></ul></div></section><section id="explore-the-generated-app"><h2>Explore the Generated App</h2><div class="ulist"><ul><li><p>the <code>dom</code> mvn module holds the domain object model</p><div class="ulist"><ul><li><p><code>SimpleObject</code> is a domain entity</p></li><li><p><code>SimpleObjects</code> is corresponding repository/menu</p></li></ul></div></li><li><p>The <code>fixtures</code> module defines fixtures for use in prototyping and tests</p><div class="ulist"><ul><li><p>by default, run in-memory HSQLDB</p></li><li><p><code>RecreateSimpleObjects</code> recreates a complete set of objects</p></li></ul></div></li></ul></div></section><section id="explore-the-generated-app-ctd"><h2>Explore the Generated App (ctd)</h2><div class="ulist"><ul><li><p>the <code>integtests</code> module holds end-to-end integration tests</p></li><li><p>the <code>app</code> module defines a subclass of the <code>AppManifest</code> class, defining the "scope" of the application</p></li><li><p>the <code>webapp</code> module contains <code>WEB-INF/web.xml</code> etc</p><div class="ulist"><ul><li><p><code>WEB-INF/isis.properties</code> and related files configure the framework</p></li></ul></div></li></ul></div></section></section>
+<section><section id="domain-entities"><h2>Domain Entities</h2><div class="ulist"><ul><li><p>Domain entities are the building blocks of Apache Isis applications, being the persistent objects with which
+end-users view and interact</p></li><li><p>From a programming perspective, they are basically pojos, with some JDO annotations</p></li></ul></div></section><section id="renaming-code-simpleobject-code"><h2>Renaming <code>SimpleObject</code></h2><div class="ulist"><ul><li><p>Rename <code>SimpleObject</code> to a core entity of your domain</p><div class="ulist"><ul><li><p>eg to <code>Customer</code></p></li><li><p>rename class name in JDOQL annotations also</p></li></ul></div></li><li><p>rename corresponding <code>SimpleObjects</code> repository also</p><div class="ulist"><ul><li><p>eg <code>Customers</code></p></li></ul></div></li><li><p>rename the <code>RecreateSimpleObjects</code> fixture</p><div class="ulist"><ul><li><p>eg <code>RecreateCustomers</code></p></li></ul></div></li></ul></div></section><section id="scalar-properties"><h2>Scalar properties</h2><div class="ulist"><ul><li><p>Properties are defined as a normal <a href="http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_get">getter</a>/<a href="http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_set">setter</a> pair</p><div class="ulist"><ul><li><p>normally used by both Isis (for the UI) and DataNucleus (for the DB)</p></li></ul></div></li><li><p>The <a href="http://isis.apache.org/guides/rgcms.html#_rgcms_classes_value-types">property&#8217;s type</a> can be
+a primitive, a wrapper type, a Joda time type, or an Isis-specific type (eg <code>Blob</code>/<code>Clob</code>)</p></li><li><p>You may need to add some JDO-specific annotations</p><div class="ulist"><ul><li><p>typically <a href="https://isis.apache.org/guides/rgant.html#_rgant-Column"><code>@Column(allowsNull=&#8230;&#8203;)</code></a></p></li><li><p>if problems, a validation failure is thrown at start-up</p></li></ul></div></li></ul></div></section><section id="project-lombok"><h2>Project Lombok</h2><div class="ulist"><ul><li><p>You can also use <a href="https://isis.apache.org/guides/dg.html#_dg_project-lombok">Project Lombok</a> to remove the getter/setters</p></li><li><p>Usually as simple as adding the mvn dependency:<br /></p><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.projectlombok<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>lombok<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>1.16.6<span class="tag">&lt;/version&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre></div></div></li><li><p>See also this <a href="https://www.youtube.com/watch?v=SLJPBruFMKY">screencast</a>.</p></li></ul></div></section><section id="titles-and-icons"><h2>Titles and icons</h2></section><section id="layouts"><h2>Layouts</h2><div class="paragraph"><p><code>layout.xml</code></p></div></section></section>
+<section><section id="associations"><h2>Associations</h2></section><section id="reference-properties"><h2>Reference properties</h2></section><section id="collections"><h2>Collections</h2></section></section>
+<section id="actions"><h2>Actions</h2></section>
+<section><section id="repository-implementations"><h2>Repository Implementations</h2></section><section id="naive-implementations"><h2>Naive Implementations</h2></section><section id="jdoql"><h2>JDOQL</h2></section></section>
+<section><section id="business-rules"><h2>Business Rules</h2></section><section id="see-it"><h2>See it?</h2></section><section id="use-it"><h2>Use it?</h2></section><section id="do-it"><h2>Do it?</h2></section></section>
+<section id="choices-and-autocomplete"><h2>Choices and AutoComplete</h2></section>
+<section id="user-messages"><h2>User Messages</h2></section>
+<section id="fixture-scripts"><h2>Fixture scripts</h2></section>
+<section id="unit-testing"><h2>Unit testing</h2></section>
+<section id="integration-testing"><h2>Integration testing</h2></section>
+<section id="view-models"><h2>View Models</h2></section>
+<section id="home-page"><h2>Home page</h2></section>
+<section id="domain-service-apis"><h2>Domain Service APIs</h2></section>
+<section><section id="decoupling"><h2>Decoupling</h2></section><section id="event-subscribers"><h2>Event subscribers</h2></section><section id="mixins"><h2>Mixins</h2></section></section>
+<section id="domain-services-spis"><h2>Domain Services SPIs</h2></section>
+<section id="add-ons"><h2>Add-ons</h2></section>
+<section><section id="customisations"><h2>Customisations</h2></section><section id="css"><h2>CSS</h2></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'black',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
