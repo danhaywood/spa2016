@@ -2,7 +2,6 @@
 Dan Haywood & Jeroen van der Wal
 :backend: revealjs
 :revealjs_progress: true
-:source-highlighter: coderay
 
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../java]
@@ -32,22 +31,17 @@ include::subdir/_030_simpleapp-archetype.adoc[]
 
 include::subdir/_040_domain-entities.adoc[]
 
-include::subdir/_050_associations.adoc[]
+include::subdir/_050_value-properties.adoc[]
+
+include::subdir/_060_domain-services.adoc[]
+
+include::subdir/_070_associations.adoc[]
+
+include::subdir/_080_actions.adoc[]
 
 
 
 
-== Actions
-
-
-
-
-== Repository Implementations
-
-=== Naive Implementations
-
-
-=== JDOQL
 
 
 
@@ -66,9 +60,7 @@ include::subdir/_050_associations.adoc[]
 == Choices and AutoComplete
 
 
-
-== User Messages
-
+=== Bounded
 
 
 == Fixture scripts
@@ -83,6 +75,10 @@ include::subdir/_050_associations.adoc[]
 
 
 
+== Fake data
+
+
+
 == View Models
 
 
@@ -90,8 +86,6 @@ include::subdir/_050_associations.adoc[]
 == Home page
 
 
-
-== Domain Service APIs
 
 
 

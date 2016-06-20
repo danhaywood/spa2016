@@ -1,0 +1,65 @@
+== Actions
+
+* Any `public` method is an action +
++
+[source,java]
+----
+public class Customer {
+  public Order placeOrder(Product p, int quantity) {
+    ...
+  }
+}
+----
+
+* Contains arbitrary business logic
+
+* Object returned is rendered next
+** (unless link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_RoutingService[`RoutingService`] SPI has been implemented)
+
+
+
+=== Action parameter names
+
+* Java bytecode (prior to JDK 8) does not capture parameter name
+
+* Use link:http://isis.apache.org/guides/rgant.html#_rgant-ParameterLayout[`@ParameterLayout`] to specify parameter name for primitives
+
+[source,java]
+----
+public class Customer {
+  public Order placeOrder(
+      Product p,
+      @ParameterLayout(named="Quantity")
+      int quantity) {
+    ...
+  }
+}
+----
+
+
+
+=== paraname8 module
+
+* Alternatively, configure the link:https://github.com/isisaddons/isis-metamodel-paraname8#how-to-configureuse[paraname8] module
+
+* One of a number of (non-ASF) modules catalogued at link:http://www.isisaddons.org/[Isis {nbsp}Addons].
+
+
+
+
+=== Action domain-layer semantics
+
+* The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_Action[`@Action`] annotation is used to specify domain-layer semantics
+
+**
+
+
+=== Action UI-layer semantics
+
+
+* Actions can be optionally be associated with either properties, fieldsets or collections
+
+
+** either using `.layout.xml` or using `@MemberOrder`.
+
+* associate an actions with a property or a collection

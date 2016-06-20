@@ -1,0 +1,102 @@
+== (Value) Properties
+
+* Properties are defined as a normal link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_get[getter]/link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_set[setter] pair +
++
+[source,java]
+----
+private String name;
+public String getName() {
+  return this.name;
+}
+public void setName(String name) {
+  this.name = name;
+}
+----
+
+* Used by both Apache Isis (for the UI) and by DataNucleus (for the DB)
+
+
+=== Property types
+
+* The link:http://isis.apache.org/guides/rgcms.html#_rgcms_classes_value-types[property's type] can be
+a primitive, a wrapper type, a Joda time type, or an Isis-specific type (eg ``Blob``/``Clob``)
+
+
+=== Property optionality
+
+* You may need to add some link:http://www.datanucleus.org/products/accessplatform_4_1/jdo/fields_properties.html[JDO-specific] annotations
+* most commonly link:https://isis.apache.org/guides/rgant.html#_rgant-Column[`@Column(allowsNull=...)`]
+
+[TIP]
+====
+If problems with annotations, a validation failure is thrown at start-up
+====
+
+
+
+=== Property domain-layer semantics
+
+* The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_Property[`@Property`] annotation is used to
+specify domain-layer semantics
+
+** whether editable
+** whether to raise a domain event on the internal link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_EventBusService[event bus]
+** whether to publish via the link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_PublisherService[`PublisherService`]
+** whether to reify as a command (defer execution to run in background)
+
+
+
+=== Property domain-layer semantics (ctd)
+
+* Other semantics may be specified using ``java``/``javax`` annotations
+
+** For strings, specify max. length using link:https://isis.apache.org/guides/rgant.html#_rgant-Column[`@Column`]
+** For decimals, specify scale using link:https://isis.apache.org/guides/rgant.html#_rgant-Digits[`@Digits`]
+
+
+
+
+=== Project Lombok
+
+* You can also use link:https://isis.apache.org/guides/dg.html#_dg_project-lombok[Project Lombok] to remove the getter/setters
+
+* Usually as simple as adding the mvn dependency: +
++
+[source,xml]
+----
+<dependency>
+  <groupId>org.projectlombok</groupId>
+  <artifactId>lombok</artifactId>
+  <version>1.16.6</version>
+</dependency>
+----
+
+* allowing us to write: +
++
+[source,java]
+----
+@lombok.Getter @lombok.Setter
+private String name;
+----
+
+
+
+=== Ignoring Properties
+
+* use link:http://isis.apache.org/guides/rgant.html#_rgant-NotPersistent[`@NotPersistent`] if want DataNucleus to ignore
+* use link:http://isis.apache.org/guides/rgant.html#_rgant-Programmatic[`@Programmatic`] if want Apache Isis to ignore
+
+
+
+=== Property UI-layer semantics
+
+* The link:http://isis.apache.org/guides/ugfun.html#_ugfun_object-layout_dynamic_xml[`.layout.xml`] ``fieldset``s can reference property Ids
+
+* Can also use link:https://isis.apache.org/guides/rgant.html#_rgant_PropertyLayout[`@PropertyLayout`] and link:https://isis.apache.org/guides/rgant.html#_rgant_MemberOrder[`@MemberOrder`] annotations
+
+** The `@MemberOrder` annotation can be used to associate a property to a fieldset (using `name`)
+** save listing all properties in the `.layout.xml`
+
+* However, not dynamically reloadable, don't support tab groups
+
+

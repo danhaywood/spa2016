@@ -60,3 +60,13 @@ mvn clean install
 * the `app` module defines a subclass of the `AppManifest` class, defining the "scope" of the application
 * the `webapp` module contains `WEB-INF/web.xml` etc
 ** `WEB-INF/isis.properties` and related files configure the framework
+
+
+=== Applib
+
+* The Apache Isis "applib" (application library) is the single point of contact between domain objects and the rest
+of the framework
+
+* Main contents is default domain services implemented by the framework
+
+* Also defines a number of value types that can optionally be used (eg `Password`, `Blob`) and for link:https://isis.apache.org/guides/rgcms.html#_rgcms_classes_i18n[i18n support] (specifically `TranslatableString`)

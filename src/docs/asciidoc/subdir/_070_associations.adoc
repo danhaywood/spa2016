@@ -1,0 +1,98 @@
+== Associations
+
+* Associations relate entities together
+** 1:1 or 1:m
+** unidirectional or bidirectional
+
+* Implemented either as a foreign key or as a join table
+
+
+
+=== IntelliJ Live Templates
+
+* For properties: +
++
+[.thumb]
+image::isp-jdo.png[scaledwidth=75%]
+
+* For collections: +
++
+[.thumb]
+image::isc-jdo.png[scaledwidth=75%]
+
+
+
+=== Unidirectional 1:1 Reference Property
+
+* eg reference to a lookup/static data
+
+* corresponds to a simple foreign key +
++
+[source,java]
+----
+public class Product {
+    ...
+  @Column(allowsNull = "false")
+  @Property()
+  @lombok.Getter @lombok.Setter
+  private TaxRate taxRate;
+}
+----
+
+
+
+=== Bidirectional 1:m Collection
+
+* eg order/order-detail, an aggregate root with child elements
+
+* corresponds to a foreign key, traversed in both directions +
++
+[source,java]
+----
+public class Order {
+    ...
+  @Persistent(
+    mappedBy = "order",
+    dependentElement = "true"
+  )
+  @Collection()
+  @lombok.Getter @lombok.Setter
+  private SortedSet<OrderItem> orderItems =
+                                new TreeSet<OrderItem>();
+}
+----
+
+
+
+=== Bidirectional 1:m Join-table
+
+* to avoid the FK in the "many" side of the association
+
+[source,java]
+----
+public class Customer {
+  ...
+  @Persistent(
+    mappedBy = "customer",
+    dependentElement = "false"
+  )
+  @Join
+  @Collection()
+  @lombok.Getter @lombok.Setter
+  private SortedSet<Order> orders = new TreeSet<Order>();
+}
+----
+
+
+
+
+=== Collection domain-layer semantics
+
+* The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_Collection[`@Collection`] annotation is used to specify domain-layer semantics
+
+* Not used very much
+
+
+
+
+=== Collection UI-layer semantics

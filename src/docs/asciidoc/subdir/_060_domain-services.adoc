@@ -1,0 +1,182 @@
+== Domain Services
+
+* The framework automatically manages domain services
+** both application-defined and framework-provided
+
+* API services are called by domain application
+** eg `CustomerRepository` or xref:rgsvc.adoc#_rgsvc_api_MessageService[`MessageService`]
+
+* SPI services are called by framework itself
+** eg xref:rgsvc.adoc#_rgsvc_api_PublisherService[`PublisherService`]
+
+
+
+=== Domain Service Use Cases
+
+* repository for an entity, eg `CustomerRepository`
+
+* menu actions, eg `CustomerMenu`
+
+* facade over some technology, eg `BarcodeScanner`
+
+
+
+=== Framework-provided services
+
+* link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_FactoryService[`FactoryService`] to instantiate objects
+
+* link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_RepositoryService[`RepositoryService`] supports querying and persistence
+
+* link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_MessageService[`MessageService`] to raise (toast pop-up) messages
+
+* Many others in the link:http://isis.apache.org/guides/rgsvc.html#_rgsvc[domain services guide]
+
+
+
+=== Application-written services
+
+* Declared using xref:rgant.adoc#_rgant_DomainService[`@DomainService`] annotation
+
+[source,java]
+----
+@DomainService
+public class CustomerRepository {
+  ...
+}
+----
+
+
+
+
+
+=== Repository Implementations
+
+* for a (quick-n-dirty) naive implementation, use link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_RepositoryService[`RepositoryService#allInstances(...)`]
+** perform client-side filtering using a `Predicate`
+
+* as move towards production, replace with:
+** link:http://www.datanucleus.org/products/datanucleus/jdo/jdoql.html[JDOQL] with `RepositoryService#allMatches(...)`
+** else with link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_IsisJdoSupport[`IsisJdoSupport`] service
+*** using either link:http://www.datanucleus.org/products/datanucleus/jdo/jdoql_declarative.html[declarative API] or
+link:http://www.datanucleus.org/products/datanucleus/jdo/jdoql_typesafe.html[type-safe queries]
+
+
+
+=== Injected
+
+* Domain services are automatically injected into entities and other domain services
+** using link:http://isis.apache.org/guides/rgant.html#_rgant-Inject[`javax.inject.Inject`]
+
+* eg: +
++
+[source,java]
+----
+@DomainService
+public class Customer {
+  ...
+  @Inject
+  OrderRepository orderRepository;
+}
+----
+
+
+=== Menu services
+
+* Use `natureOfService` to specify if menu
+* Combine with xref:rgant.adoc#_rgant_DomainServiceLayout[`@DomainServiceLayout`] for UI
+
+* eg: +
++
+[source,java]
+----
+@DomainService(
+  natureOfService=NatureOfService.VIEW_MENU_ONLY
+)
+@DomainServiceLayout(
+  named = "Customers",
+  menuOrder = "10"
+)
+public class CustomerMenu {
+    ...
+}
+----
+
+
+
+
+=== `AppManifest`
+
+* The `AppManifest` specifies which packages to search for both domain services and domain entities
+
+[source,java]
+----
+public class DomainAppAppManifest implements AppManifest {
+  public List<Class<?>> getModules() {
+    return Arrays.asList(
+      DomainAppDomainModule.class,  // dom module
+      DomainAppFixtureModule.class, // fixture module
+      DomainAppAppModule.class      // app module
+    );
+  }
+  ...
+}
+----
+
+
+
+=== @RequestScoped vs Singletons
+
+* Domain services can also be request-scoped
+
+* eg the framework-provided link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_Scratchpad[`Scratchpad`] service:
+
+[source,java]
+----
+@DomainService
+@RequestScoped
+public class Scratchpad {
+  public Object get(Object key) { ... }
+  public void put(Object key, Object value) { ... }
+  public void clear() { ... }
+}
+----
+
+
+
+=== Replacing framework services
+
+* Default framework implementations can be overridden using xref:rgant.adoc#_rgant_DomainServiceLayout_menuOrder[`@DomainServiceLayout#menuOrder()`]
+
+* eg: +
++
+[source,java]
+----
+import o.a.i.applib.services.message.MessageService;
+@DomainService
+@DomainServiceLayout(menuOrder="1")
+public class MyMessageService extends MessageService {
+  ...
+}
+----
+
+* The lower `menuOrder` results in the replacement implementation being used rather than the default.
+
+
+=== Injecting lists (advanced use case)
+
+* It's also possible to inject list of services: +
++
+[source,java]
+----
+@DomainService
+public class Customer {
+  ...
+  @javax.inject.Inject
+  List<Printer> printers;
+}
+----
+
+* All services implementing the type will be injected
+
+* Useful if decorating a framework-provided domain service
+
