@@ -1,10 +1,94 @@
 == Integration Testing
 
+* Integration tests bootstrap the application using an link:http://isis.apache.org/guides/rgcms.html#_rgcms_classes_AppManifest-bootstrapping[`AppManifest`], running against in-memory database
+
+* link:http://isis.apache.org/guides/ugtst.html#_ugtst_fixture-scripts[Fixture scripts] define the "given" for each test
+
+* The http://isis.apache.org/guides/ugtst.html#_ugtst_integ-test-support_wrapper-factory[`WrapperFactory`] domain service simulates the UI
+
+=== WrapperFactory
+
+* Given:
+
+[source,java]
+----
+public class Customer {
+  @Action
+  public Order newOrder() { ... }
+  public String disableNewOrder() {
+    return isBlacklisted()
+      ? "sorry, customer is blacklisted"
+      : null;
+  }
+}
+----
+
+
+=== WrapperFactory (ctd)
+
+* Test with:
+
+[source,java]
+----
+public class CustomerTest {
+  @Test(expected=DisabledException.class)
+  public void blacklisted_cannot_create_order() {
+    Customer cust = repo.findBlacklisted().get(0);
+    wf.wrap(cust).newOrder();
+  }
+  @Inject
+  WrapperFactory wf;
+  @Inject
+  CustomerRepository repo;
+}
+----
+
+[NOTE]
+====
+Fixture script setup not shown in this example.
+====
+
 
 === Fake data
 
+* Data where "any value will do" should be chosen randomly
+** eg name of a customer
+
+* Any "hard-coded" data in the test then stands out as relevant to the behaviour being verified
+** eg date of birth of the customer, perhaps
+
+* The (non-ASF) http://github.com/isisaddons/isis-module-fakedata[Isis addons' fakedata] module provides the `FakeDataService` domain service for this purpose
+
+** uses link:https://github.com/DiUS/java-faker[java-faker] under the covers
+
+
+=== `FakeDataService`
+
+* Full API is link:https://github.com/isisaddons/isis-module-fakedata#api-and-implementation[extensive]; it includes:
+
+[source,java]
+----
+public interface FakeDataService {
+  Names name() { ... }
+  Comms comms() { ... }
+  Lorem lorem() { ... }
+  Addresses addresses() { ... }
+  ...
+  Strings strings() { ... }
+  ...
+  IsisBlobs isisBlobs() { ... }
+  IsisClobs isisClobs() { ... }
+}
+----
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: write an integration test
+
+* Write an integration test using the link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_WrapperFactory[`WrapperFactory`] to:
+** verify the behaviour of an action
+** verify a business rule
+
+* Update your fixture scripts to use the `FakeDataService`
+** the only hard-coded data should be that relevant to the scenario being tested
 

@@ -2,7 +2,7 @@
 
 * By default, Apache Isis applications are configured to run against an in-memory database
 
-* *Fixture scripts* are a mini-framework to help set up data
+* link:http://isis.apache.org/guides/ugtst.html#_ugtst_fixture-scripts[Fixture scripts] are a mini-framework to help set up data
 
 
 * Top-level fixture script represent a scenario

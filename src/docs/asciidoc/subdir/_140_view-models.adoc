@@ -1,15 +1,82 @@
 == View Models
 
+* Why link:http://isis.apache.org/guides/ugbtb.html#_ugbtb_view-models[view models]?
+
+** Not every entity is necessarily persisted by DataNucleus
+
+** Not every domain object is even an entity
+
+** High-volume use cases require specialist views to aggregate/consolidate multiple domain objects
+
+** Exposing domain entities over REST a bad idea if don't control the client
+
+
+
+=== View Model Support
+
+* Apache Isis allows view models to be defined to represent such domain objects
+** analogous to an (RDBMS) view on top of an table
+
+* Several programming models available, but most flexible/straightforward uses link:http://isis.apache.org/guides/ugbtb.html#_ugbtb_view-models_jaxb[JAXB annotations]
+
+* the state of the view model is serialized into the URL (rather than the DB)
+** or as per link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_UrlEncodingService[`UrlEncodingService`] SPI implementation, if any
+
 
 
 === JAXB
 
+* eg:
+
+[source,java]
+----
+@XmlRootElement
+@XmlType( propOrder = { "left", "right" } )
+public class CompareCustomers {
+
+    @XmlElement(required = true)
+    @Getter @Setter
+    private Customer left;
+
+    @XmlElement(required = true)
+    @Getter @Setter
+    private Customer right;
+}
+----
+
+
+=== Referenced entities
+
+* entities referenced must be link:http://isis.apache.org/guides/rgant.html#_rgant-XmlJavaTypeAdapter[annotated] with `PersistentEntityAdapter`
+** serializes out the entity's id, rather than the entire state of the entity
+
+* eg: +
++
+[source,java]
+----
+@XmlJavaTypeAdapter(PersistentEntityAdapter.class)
+public class Customer {
+  ...
+}
+----
 
 
 === Home page
 
+* Exactly one domain service action can be annotated with link:http://isis.apache.org/guides/rgant.html#_rgant-HomePage[`@HomePage`]
+
+** Automatically invoked whenver user navigates to home
+
+* Typically returns a view model that acts as a dashboard
+** with a heavily customised link:http://isis.apache.org/guides/ugfun.html#_ugfun_object-layout_dynamic_xml[`.layout.xml`]
+
+
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: define a home page
+
+* Create a view model to represent the home page of your application
+
+* Annotate a domain service that returns this home page view model
 

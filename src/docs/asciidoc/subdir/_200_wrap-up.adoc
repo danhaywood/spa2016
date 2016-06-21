@@ -1,0 +1,15 @@
+[data-background="#243"]
+== Wrap-up
+
+* what did you build?
+
+* what did you like?
+
+* what limitations did you hit/frustrated you?
+
+* in your opinion, how does the framework:
+** support/hinder agile software development
+** play with/against TDD
+** play with/against BDD?
+** play with/against DDD?
+

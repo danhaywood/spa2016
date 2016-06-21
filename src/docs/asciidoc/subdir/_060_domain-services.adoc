@@ -4,10 +4,10 @@
 ** both application-defined and framework-provided
 
 * API services are called by domain application
-** eg `CustomerRepository` or xref:rgsvc.adoc#_rgsvc_api_MessageService[`MessageService`]
+** eg `CustomerRepository` or link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_MessageService[`MessageService`]
 
 * SPI services are called by framework itself
-** eg xref:rgsvc.adoc#_rgsvc_api_PublisherService[`PublisherService`]
+** eg link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_PublisherService[`PublisherService`]
 
 
 
@@ -35,7 +35,7 @@
 
 === Application-written services
 
-* Declared using xref:rgant.adoc#_rgant_DomainService[`@DomainService`] annotation
+* Declared using link:http://isis.apache.org/guides/rgant.html#_rgant-DomainService[`@DomainService`] annotation
 
 [source,java]
 ----
@@ -83,7 +83,7 @@ public class Customer {
 === Menu services
 
 * Use `natureOfService` to specify if menu
-* Combine with xref:rgant.adoc#_rgant_DomainServiceLayout[`@DomainServiceLayout`] for UI
+* Combine with link:http://isis.apache.org/guides/rgant.html#_rgant-DomainServiceLayout[`@DomainServiceLayout`] for UI
 
 * eg: +
 +
@@ -146,7 +146,7 @@ public class Scratchpad {
 
 === Replacing framework services
 
-* Default framework implementations can be overridden using xref:rgant.adoc#_rgant_DomainServiceLayout_menuOrder[`@DomainServiceLayout#menuOrder()`] +
+* Default framework implementations can be overridden using link:http://isis.apache.org/guides/rgant.html#_rgant-DomainServiceLayout_menuOrder[`@DomainServiceLayout#menuOrder()`] +
 
 [source,java]
 ----

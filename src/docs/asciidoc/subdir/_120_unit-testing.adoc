@@ -1,7 +1,92 @@
 == Unit Testing
 
+* Since the framework promotes dependencies injection, link:http://isis.apache.org/guides/ugtst.html#_unit_tests_vs_integ_tests[unit testing] is straightforward
+
+* The framework also provides some helper classes
+** for various link:http://isis.apache.org/guides/ugtst.html#_ugtst_unit-test-support_contract-tests[contract tests]
+** as extensions to link:http://isis.apache.org/guides/ugtst.html#_ugtst_unit-test-support_jmock-extensions[JMock]
+** for unit-testing link:http://isis.apache.org/guides/ugtst.html#_ugtst_unit-test-support_soap-fake-server-junit-rule[SOAP endpoints]
+*** eg if interacting with other systems
+
+
+
+=== Example
+
+* Given:
+
+[source,java]
+----
+public class Customer {
+  @Action
+  public Order newOrder() { ... }
+  public String disableNewOrder() {
+    return isBlacklisted()
+      ? "sorry, customer is blacklisted"
+      : null;
+  }
+}
+----
+
+=== Example (ctd)
+
+* Test using:
+
+[source,java]
+----
+public class CustomerTest {
+  @Test
+  public void blacklisted_cannot_create_order() {
+    Customer cust = new Customer();
+    cust.setBlacklisted(true);
+    assertNotNull(cust.disableNewOrder());
+  }
+}
+----
+
+
+=== JMock Extension
+
+* You can use any mocking framework, but the framework provides some additional helper classes for link:http://www.jmock.org/[JMock]
+
+* eg, given:
+
+[source,java]
+----
+public class Collaborating {
+  ...
+  Collaborator collaborator;
+  public void setCollaborator(Collaborator collaborator) {
+    this.collaborator = collaborator;
+  }
+}
+----
+
+=== JMock Extension (ctd)
+
+[source,java]
+----
+public class CollaboratorTest {
+  @Rule
+  public JUnitRuleMockery2 context =JUnitRuleMockery2
+             .createFor(Mode.INTERFACES_AND_CLASSES);
+  @Mock
+  Collaborator collaborator;
+  @ClassUnderTest
+  Collaborating collaborating;
+  @Test
+  public void collaborator_is_autowired() {
+    assertNotNull(collaborating.collaborator);
+  }
+}
+----
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: Write a unit test
 
+* Using your preferred unit testing framework
+** verify the behaviour of an action
+** verify a business rule
+
+* use conventional test-first development to implement a new feature
+** does Apache Isis help/hinder this approach?
