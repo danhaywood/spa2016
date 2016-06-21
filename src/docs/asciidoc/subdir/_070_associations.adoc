@@ -34,7 +34,7 @@ public class Product {
     ...
   @Column(allowsNull = "false")
   @Property()
-  @lombok.Getter @lombok.Setter
+  @Getter @Setter
   private TaxRate taxRate;
 }
 ----
@@ -56,9 +56,9 @@ public class Order {
     dependentElement = "true"
   )
   @Collection()
-  @lombok.Getter @lombok.Setter
+  @Getter @Setter
   private SortedSet<OrderItem> orderItems =
-                                new TreeSet<OrderItem>();
+                        new TreeSet<OrderItem>();
 }
 ----
 
@@ -78,8 +78,9 @@ public class Customer {
   )
   @Join
   @Collection()
-  @lombok.Getter @lombok.Setter
-  private SortedSet<Order> orders = new TreeSet<Order>();
+  @Getter @Setter
+  private SortedSet<Order> orders =
+                        new TreeSet<Order>();
 }
 ----
 
@@ -90,9 +91,17 @@ public class Customer {
 
 * The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_Collection[`@Collection`] annotation is used to specify domain-layer semantics
 
-* Not used very much
-
+** whether to raise a domain event on internal link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_EventBusService[event bus]
 
 
 
 === Collection UI-layer semantics
+
+* The link:http://isis.apache.org/guides/ugfun.html#_ugfun_object-layout_dynamic_xml[`.layout.xml`] ``col``s can reference collection via the `<collection>` element
+
+* Can specify same info as link:https://isis.apache.org/guides/rgant.html#_rgant_CollectionLayout[`@CollectionLayout`] annot'n
+** override name inferred from code
+** CSS class, description
+** default view (table, hidden, ...)
+** page size
+** how to sort (if not default)

@@ -7,20 +7,6 @@ end-users view and interact
 
 
 
-=== Renaming `SimpleObject`
-
-* Rename `SimpleObject` to a core entity of your domain
-** eg to `Customer`
-** rename class name in JDOQL annotations also
-
-* rename corresponding `SimpleObjects` repository also
-** eg `Customers`
-
-* rename the `RecreateSimpleObjects` fixture
-** eg `RecreateCustomers`
-
-
-
 === Object Title
 
 * Allows the end-user to link:http://isis.apache.org/guides/ugfun.html#_ugfun_how-tos_ui-hints_object-titles-and-icons[distinguish object instances] within the UI
@@ -64,9 +50,9 @@ would use `Customer-premium.png` for premium customers.
 * The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_DomainObject[`@DomainObject`] annotation is used to
 specify domain-layer semantics
 
-** whether read-only or editable, using `@DomainObject(editing=...)`
-** whether audited using `@DomainObject(auditing=...)`
-** whether published using `@DomainObject(publishing=...)`
+** whether read-only or editable, using `#editing`
+** whether audited using `#auditing`
+** whether published using `#publishing`
 ** hook into JDO lifecycle events
 
 
@@ -85,12 +71,15 @@ specify domain-layer semantics
 
 
 
-=== UI-layer semantics using annotations
+=== UI-layer semantics using annotations (ctd)
 
-* The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_DomainObjectLayout[`@DomainObjectLayout`] annotation can also be used
-    specify UI-layer semantics
+* one `col` can hold `<domainObject>` element to specify location of title/icon
 
-** most info can be specified using `.layout.xml`
-** but use annotation to hook into UI lifecycle events for link:link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_titleUiEvent[title], link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_iconUiEvent[icon], link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_cssClassUiEvent[CSS class].
+* can specify same info as link:https://isis.apache.org/guides/rgant.html#_rgant_DomainObjectLayout[`@DomainObjectLayout`]
+** override name inferred from code
+** CSS class, icon name, description
+** whether to bookmark, page size (if returned as a list)
+
+* use annotation to hook into UI lifecycle events for link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_titleUiEvent[title], link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_iconUiEvent[icon], link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_cssClassUiEvent[CSS class].
 
 

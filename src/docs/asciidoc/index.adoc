@@ -20,6 +20,19 @@ link:http://lab.hakim.se/reveal-js/[reveal.js] as the rendering backend.
 * Press `*esc*` to go to an overview of the entire slide deck
 
 
+[data-background="#243"]
+=== Exercise: Navigate around
+
+* At the end of each section is an exercise slide, like this one
+** exercise slides have a slightly different background colour
+
+* Use the exercises as a starting point for your own explorations
+
+* Feel free to break off at any time and explore
+
+* For now, use the arrow keys and `*esc*` to quickly get an idea of what else is in this tutorial
+
+
 
 
 
@@ -39,28 +52,11 @@ include::subdir/_070_associations.adoc[]
 
 include::subdir/_080_actions.adoc[]
 
+include::subdir/_090_choices-and-autocomplete.adoc[]
+
+include::subdir/_100_business-rules.adoc[]
 
 
-
-
-
-
-== Business Rules
-
-=== See it?
-
-
-=== Use it?
-
-
-=== Do it?
-
-
-
-== Choices and AutoComplete
-
-
-=== Bounded
 
 
 == Fixture scripts
@@ -103,7 +99,30 @@ include::subdir/_080_actions.adoc[]
 
 
 
+== REST API
+
+
+=== Swagger
+
+
+=== Alternative Representations
+
+
+
 == Add-ons
+
+
+=== Security
+
+* multi-tenancy
+
+=== Publishing
+
+
+=== Auditing
+
+
+=== Commands
 
 
 
@@ -111,4 +130,9 @@ include::subdir/_080_actions.adoc[]
 
 === CSS
 
+
+
+== Headless Mode
+
+* ie background commands
 

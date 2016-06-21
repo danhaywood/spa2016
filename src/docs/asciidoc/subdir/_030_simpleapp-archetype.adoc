@@ -62,11 +62,19 @@ mvn clean install
 ** `WEB-INF/isis.properties` and related files configure the framework
 
 
-=== Applib
 
-* The Apache Isis "applib" (application library) is the single point of contact between domain objects and the rest
-of the framework
+[data-background="#243"]
+=== Exercise: Rename `SimpleObject`
 
-* Main contents is default domain services implemented by the framework
+* Rename `SimpleObject` to a core entity of your domain
+** eg to `Customer`
+** rename class name in JDOQL annotations also
 
-* Also defines a number of value types that can optionally be used (eg `Password`, `Blob`) and for link:https://isis.apache.org/guides/rgcms.html#_rgcms_classes_i18n[i18n support] (specifically `TranslatableString`)
+* rename corresponding `SimpleObjects` repository also
+** eg `Customers`
+
+* rename the `RecreateSimpleObjects` fixture
+** eg `RecreateCustomers`
+
+
+

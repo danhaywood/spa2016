@@ -1,0 +1,132 @@
+== Action Reference Parameters
+
+* Action parameters referencing objects are specified using a drop-down
+
+* Several options available
+
+
+
+=== Enums
+
+* Enums are automatically rendered as a drop-down
+
+[source,java]
+----
+public enum PaymentMethodType {
+  VISA,
+  MASTERCARD,
+  AMEX
+  CASH
+}
+----
+
+
+
+
+=== Bounded
+
+* Use link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObject_bounded[#bounded] for objects where there is fixed (bounded) number of instances
+** eg lookup or static/reference data
+
+[source,java]
+----
+@DomainObject(bounded=true)
+public class Country {
+  ...
+}
+----
+
+
+
+
+=== Choices
+
+* Use link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_choices[choicesXxx()] supporting method
+to provides list of choices for parameter `N`
+
+[source,java]
+----
+public ShoppingCartItem addFavorite(
+    @ParameterLayout(named="Favorite")
+    Product product,
+    @ParameterLayout(named="Quantity")
+    final Integer quantity) {
+  ...
+}
+public Collection<Product> choices0UpdateProduct() {
+  return productRepo.favoritesForUser();
+}
+----
+
+
+
+=== AutoComplete
+
+
+* Use link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_autoComplete[autoCompleteXxx()] supporting method
+to allow user to search for parameter `N`
+
+[source,java]
+----
+public ShoppingCartItem addProduct(
+    Product product,
+    @ParameterLayout(named="Quantity")
+    final Integer quantity) {
+  ...
+}
+public List<Product> autoComplete0UpdateProduct(
+                         @MinLength(2) String name) {
+  return productRepo.findByNameOrSku(name);
+}
+----
+
+
+
+
+=== AutoComplete via repository
+
+* Use link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObject_autoCompleteRepository[DomainObject#autoCompleteRepository] to provide auto-complete drop-down everywhere
+
+[source,java]
+----
+@DomainObject(
+  autoCompleteRepository=CustomerRepository.class
+)
+public class Customer {
+  ...
+}
+----
+
+[source,java]
+----
+@DomainService
+public class CustomerRepository {
+    List<Customer> autoComplete(String search);
+  ...
+}
+----
+
+
+
+=== Dependent choices
+
+* (Limited) support for link:http://isis.apache.org/guides/rgcms.html#_dependent_choices[dependent choices]
+
+[source,java]
+----
+@ActionLayout(
+  describedAs = "Update category and subcategory")
+@Action(semantics = SemanticsOf.IDEMPOTENT)
+public Categorized updateCategory(
+     Category category,
+     @Nullable
+     Subcategory subcategory) {
+  ...
+}
+public List<Subcategory> choices1UpdateCategory(
+    Category category) {
+  return Subcategory.listFor(category);
+}
+----
+
+

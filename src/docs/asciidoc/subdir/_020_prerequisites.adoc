@@ -42,3 +42,14 @@ Worth bookmarking/downloading:
 
 
 
+[data-background="#243"]
+=== Exercise: Set up your environment
+
+* Use the above notes to set up mvn and an IDE
+
+* Optionally, install the file templates/live templates
+
+* If using Eclipse, install the DN plugin
+
+
+

@@ -9,3 +9,26 @@ DataNucleus' link:http://www.datanucleus.org/products/datanucleus/jdo/annotation
 * Apache Isis is itself built using link:http://maven.apache.org[Apache Maven], and the framework provides a Maven archetype as the starting point for your own domain applications built on top of the framework.
 
 
+
+=== A framework, not a library
+
+* Apache Isis is a framework, not a library
+
+* (Generally speaking) the framework calls your code, not the other way around
+** Acts as a container
+
+* An implementation of the link:http://isis.apache.org/guides/ugfun.html#_ugfun_core-concepts_philosophy_hexagonal-architecture[hexagonal architecture].
+
+
+
+=== Applib
+
+* The Apache Isis "applib" is the single point of contact between domain objects and the rest
+of the framework
+
+* Main contents is default domain services implemented by the framework
+
+* Also defines a number of value types that can optionally be used (eg `Password`, `Blob`) and for link:https://isis.apache.org/guides/rgcms.html#_rgcms_classes_i18n[i18n support] (specifically `TranslatableString`)
+
+
+

@@ -90,7 +90,7 @@ public class Customer {
 [source,java]
 ----
 @DomainService(
-  natureOfService=NatureOfService.VIEW_MENU_ONLY
+  natureOfService=VIEW_MENU_ONLY
 )
 @DomainServiceLayout(
   named = "Customers",
@@ -110,7 +110,8 @@ public class CustomerMenu {
 
 [source,java]
 ----
-public class DomainAppAppManifest implements AppManifest {
+public class DomainAppAppManifest
+                             implements AppManifest {
   public List<Class<?>> getModules() {
     return Arrays.asList(
       DomainAppDomainModule.class,  // dom module
@@ -145,21 +146,21 @@ public class Scratchpad {
 
 === Replacing framework services
 
-* Default framework implementations can be overridden using xref:rgant.adoc#_rgant_DomainServiceLayout_menuOrder[`@DomainServiceLayout#menuOrder()`]
+* Default framework implementations can be overridden using xref:rgant.adoc#_rgant_DomainServiceLayout_menuOrder[`@DomainServiceLayout#menuOrder()`] +
 
-* eg: +
-+
 [source,java]
 ----
 import o.a.i.applib.services.message.MessageService;
 @DomainService
 @DomainServiceLayout(menuOrder="1")
-public class MyMessageService extends MessageService {
+public class MyMessageService
+                      extends MessageService {
   ...
 }
 ----
 
-* The lower `menuOrder` results in the replacement implementation being used rather than the default.
+* The lower `#menuOrder` results in the replacement implementation being injectd rather than the default.
+
 
 
 === Injecting lists (advanced use case)
@@ -171,7 +172,7 @@ public class MyMessageService extends MessageService {
 @DomainService
 public class Customer {
   ...
-  @javax.inject.Inject
+  @Inject
   List<Printer> printers;
 }
 ----

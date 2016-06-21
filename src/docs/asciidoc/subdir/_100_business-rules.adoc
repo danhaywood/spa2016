@@ -1,0 +1,81 @@
+== Business Rules
+
+* Use business rules to enforce pre-conditions on property edits/action invocations
+
+* hide object member (see it?)
+** user prevented from even seeing the property/action
+* disable object member (use it?)
+** greyed out, typically the object's state is invalid
+* validate (do it?)
+** can edit the property/invoke the action, but validate the new value/action parameters
+
+
+
+=== Hide (See it?)
+
+* Specify imperatively
+** using link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_hide[`hideXxx()`] supporting method
+
+* Specify declaratively
+** using `#hidden` attribute for link:http://isis.apache.org/guides/rgant.html#_rgant-Property_hidden[properties], link:http://isis.apache.org/guides/rgant.html#_rgant-Collection_hidden[collections] or link:http://isis.apache.org/guides/rgant.html#_rgant-Action_hidden[actions]
+
+
+
+=== Disable (Use it?)
+
+* Specify imperatively
+** using link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_disable[`disableXxx()`] supporting method
+
+* Specify declaratively
+** using `#editing` attribute for link:http://isis.apache.org/guides/rgant.html#_rgant-Property_editing[properties]
+** using `#editing` attribute link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObject_editing[domain object], implies all properties
+
+
+
+=== Validate (Do it?)
+
+* Specify declaratively
+** link:http://isis.apache.org/guides/rgant.html#_rgant-Property[properties] or link:http://isis.apache.org/guides/rgant.html#_rgant-Parameter[action parameters] using ``#regexPattern``/``#fileAccept``/``#mustSatisfy``
+
+
+
+=== ``Specification``
+
+* Use `#mustSatisfy` with the link:http://isis.apache.org/guides/rgcms.html#_rgcms_classes_spec[`Specification`] interface
+
+[source,java]
+----
+public class StartWithCapital
+               implements Specification {
+  public String satisfies(Object proposedObj) {
+    String proposed = (String)proposedObj;
+    return proposed.length() == 0 ||
+       !Character.isUpperCase(proposed.charAt(0))
+         ? "Does not start with a capital letter"
+         : null;
+  }
+}
+----
+
+=== ``Specification`` (ctd)
+
+[source,java]
+----
+public class Customer {
+  @Property(mustSatisfy=StartWithCapital.class)
+  public String getFirstName() {
+    ...
+  }
+}
+----
+
+[source,java]
+----
+public class Product {
+  public void updateName(
+      @Parameter(mustSatisfy=StartWithCapital.class)
+      String name) {
+  ...
+  }
+}
+----

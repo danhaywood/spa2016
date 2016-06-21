@@ -5,7 +5,9 @@
 [source,java]
 ----
 public class Customer {
-  public Order placeOrder(Product p, int quantity) {
+  public Order placeOrder(
+      Product p,
+      int quantity) {
     ...
   }
 }
@@ -14,7 +16,7 @@ public class Customer {
 * Contains arbitrary business logic
 
 * Object returned is rendered next
-** (unless link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_RoutingService[`RoutingService`] SPI has been implemented)
+** (unless link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_RoutingService[`RoutingService`] SPI provided)
 
 
 
@@ -51,15 +53,61 @@ public class Customer {
 
 * The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_Action[`@Action`] annotation is used to specify domain-layer semantics
 
-**
+** whether to raise a domain event on internal link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_EventBusService[event bus]
+** semantics (idempotency etc)
+** 'are you sure' indicator
+** if can invoke on collection of objects, not just one
+** whether show in prototyping mode only
+
+
 
 
 === Action UI-layer semantics
 
 
-* Actions can be optionally be associated with either properties, fieldsets or collections
+* The link:http://isis.apache.org/guides/ugfun.html#_ugfun_object-layout_dynamic_xml[`.layout.xml`] can reference action via the `<action>` element
 
+* if contained within:
+**  ``fieldset``, render on panel
+** ``property``, render below that property
+** ``collection``, render on collection's header
+** if contained within a ``<col>``, render in that location
+
+
+
+=== Action UI-layer semantics (ctd)
+
+* Can specify same info as link:https://isis.apache.org/guides/rgant.html#_rgant_ActionLayout[`@ActionLayout`] annotation
+** override name inferred from code
+** CSS class, description
+** whether to bookmark (for query-only actions)
+** fine-tune the position as button vs drop-down
 
 ** either using `.layout.xml` or using `@MemberOrder`.
 
 * associate an actions with a property or a collection
+
+
+
+=== Action UI-layer semantics (ctd)
+
+* can optionally use link:https://isis.apache.org/guides/rgant.html#_rgant_MemberOrder[`@MemberOrder`] annotation
+
+** associate to a property or collection (using `#name`)
+** saves listing all properties in the `.layout.xml`
+
+* Not possible to specify all layout options with annotations (eg no tabs)
+* Not dynamically reloadable (whereas `.layout.xml` is)
+
+
+=== Action Parameter semantics
+
+* The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_Action[`@Parameter`] annotation is used to specify domain-layer semantics about the action's parameters
+
+** some overlap with link:https://isis.apache.org/guides/rgant.html#_rgant_Property[`@Property`] annotation
+
+* The Apache Isis link:https://isis.apache.org/guides/rgant.html#_rgant_Action[`@ParameterLayout`] annotation is used to specify UI-layer semantics about the action's parameters
+
+** very similar to link:https://isis.apache.org/guides/rgant.html#_rgant_Action[`@PropertyLayout`]` annotation
+
+
