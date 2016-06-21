@@ -105,3 +105,8 @@ public class Customer {
 ** default view (table, hidden, ...)
 ** page size
 ** how to sort (if not default)
+
+
+[data-background="#243"]
+=== Exercise: ...
+

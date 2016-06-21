@@ -6,7 +6,7 @@ link:http://resteasy.jboss.org/[JBoss RestEasy] (JAX-RS) for its presentation la
 * To use Apache Isis you don't need to know any Wicket or JAX-RS, but you will over time become familiar with
 DataNucleus' link:http://www.datanucleus.org/products/datanucleus/jdo/annotations.html[JDO annotations].
 
-* Apache Isis is itself built using link:http://maven.apache.org[Apache Maven], and the framework provides a Maven archetype as the starting point for your own domain applications built on top of the framework.
+* Apache Isis is itself built using link:http://maven.apache.org[Apache Maven], and the framework provides a Maven archetype as the starting point for your own domain applications
 
 
 
@@ -15,10 +15,32 @@ DataNucleus' link:http://www.datanucleus.org/products/datanucleus/jdo/annotation
 * Apache Isis is a framework, not a library
 
 * (Generally speaking) the framework calls your code, not the other way around
-** Acts as a container
+** acts as a container
 
-* An implementation of the link:http://isis.apache.org/guides/ugfun.html#_ugfun_core-concepts_philosophy_hexagonal-architecture[hexagonal architecture].
+* It implements the link:http://isis.apache.org/guides/ugfun.html#_ugfun_core-concepts_philosophy_hexagonal-architecture[hexagonal architecture] (also known as ports-and-adapters).
 
+
+
+=== For Problem Solvers...
+
+* Apache Isis' sweet spot is for back-office "line-of-business" systems, for complex domains
+
+* The end-users of such systems are often quite expert in the domain
+
+* The naked objects philosophy is to empower such users with the tools to do their job, without prescribing how to do that job
+
+* The Wicket viewer is designed for this environment
+
+
+=== ... or Process Followers
+
+* On the other hand, sometimes the users are _not_ domain experts and require more guidance
+
+* The Wicket viewer does provide an extensibility API to allow more customized/tailored views
+
+* Alternatively, the REST API automatically provided by the Restful Objects viewer can be used as the backend to custom mobile apps (eg AngularJS) or for microservices
+
+* A link:http://swagger.io/[Swagger UI] makes the REST API easy to develop against
 
 
 === Applib
@@ -26,9 +48,12 @@ DataNucleus' link:http://www.datanucleus.org/products/datanucleus/jdo/annotation
 * The Apache Isis "applib" is the single point of contact between domain objects and the rest
 of the framework
 
-* Main contents is default domain services implemented by the framework
+* It mainly consists of the API to a variety of domain services
 
-* Also defines a number of value types that can optionally be used (eg `Password`, `Blob`) and for link:https://isis.apache.org/guides/rgcms.html#_rgcms_classes_i18n[i18n support] (specifically `TranslatableString`)
+* It also defines a number of value types that can optionally be used (eg `Password`, `Blob`) and for link:https://isis.apache.org/guides/rgcms.html#_rgcms_classes_i18n[i18n support] (`TranslatableString`)
 
 
+
+[data-background="#243"]
+=== Exercise: ...
 

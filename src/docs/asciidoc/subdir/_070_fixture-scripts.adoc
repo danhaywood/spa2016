@@ -1,0 +1,97 @@
+== Fixture Scripts
+
+* By default, Apache Isis applications are configured to run against an in-memory database
+
+* *Fixture scripts* are a mini-framework to help set up data
+
+
+* Top-level fixture script represent a scenario
+
+** to start the conversation while prototyping
+** or the "given" of an integration test
+
+
+=== Typical script to create an object
+
+[source,java]
+----
+public class SimpleObjectCreate
+                         extends FixtureScript {
+  @Setter
+  private String name;
+  @Getter
+  private SimpleObject simpleObject;
+  protected void execute(ExecutionContext ec) {
+    String name = checkParam("name",ec,String.class);
+    this.simpleObject = simpleObjects.create(name)
+    ec.addResult(this, this.simpleObject);
+  }
+  @Inject
+  private SimpleObjects simpleObjects;
+}
+----
+
+
+
+=== Typical script to teardown objects
+
+[source,java]
+----
+public class SimpleObjectsTearDown
+                        extends FixtureScript {
+  protected void execute(ExecutionContext ec) {
+    isisJdoSupport.executeUpdate(
+      "delete from \"simple\".\"SimpleObject\"");
+  }
+  @Inject
+  private IsisJdoSupport isisJdoSupport;
+}
+----
+
+=== Typical script to set up a scenario
+
+
+[source,java]
+----
+public class RecreateSimpleObjects
+                        extends FixtureScript {
+  ...
+  public final List<String> NAMES = ...
+  @Getter
+  private List<SimpleObject> simpleObjects = ...;
+  protected void execute(ExecutionContext ec) {
+    ...
+    ec.executeChild(this,new SimpleObjectsTearDown());
+    for (String name: NAMES) {
+      SimpleObjectCreate fs =
+          new SimpleObjectCreate().setName(name);
+      ec.executeChild(this, name, fs);
+      simpleObjects.add(fs.getSimpleObject());
+    }
+  }
+}
+----
+
+
+=== `AppManifest` to automatically run fixtures on start-up
+
+[source,java]
+----
+public class DomainAppAppManifestWithFixtures
+                      extends DomainAppAppManifest {
+  public List getFixtures() {
+    return Lists.newArrayList(
+                      RecreateSimpleObjects.class);
+  }
+  public Map getConfigurationProperties() {
+    return ImmutableMap.of(
+      "isis.persistor.datanucleus.install-fixtures",
+      "true");
+  }
+}
+----
+
+
+[data-background="#243"]
+=== Exercise: ...
+

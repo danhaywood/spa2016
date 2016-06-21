@@ -55,7 +55,7 @@ public class CustomerRepository {
 ** perform client-side filtering using a `Predicate`
 
 * as move towards production, replace with:
-** link:http://www.datanucleus.org/products/datanucleus/jdo/jdoql.html[JDOQL] with `RepositoryService#allMatches(...)`
+** link:http://www.datanucleus.org/products/datanucleus/jdo/jdoql.html[JDOQL] and `RepositoryService#allMatches(...)`
 ** else with link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_IsisJdoSupport[`IsisJdoSupport`] service
 *** using either link:http://www.datanucleus.org/products/datanucleus/jdo/jdoql_declarative.html[declarative API] or
 link:http://www.datanucleus.org/products/datanucleus/jdo/jdoql_typesafe.html[type-safe queries]
@@ -180,4 +180,8 @@ public class Customer {
 * All services implementing the type will be injected
 
 * Useful if decorating a framework-provided domain service
+
+
+[data-background="#243"]
+=== Exercise: ...
 

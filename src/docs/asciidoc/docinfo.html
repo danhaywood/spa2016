@@ -1,6 +1,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
 
 <style>
+p>strong,
 code>strong {
     color: red;
 }
@@ -45,5 +46,14 @@ pre.CodeRay {
 
 .reveal h2 {
     text-transform: inherit;
+}
+
+.reveal pre.CodeRay code {
+  max-height: 800px;
+  overflow: hidden;
+}
+
+.reveal a {
+    text-decoration: underline dotted;
 }
 </style>

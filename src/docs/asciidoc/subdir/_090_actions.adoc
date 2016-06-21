@@ -111,3 +111,7 @@ public class Customer {
 ** very similar to link:https://isis.apache.org/guides/rgant.html#_rgant_Action[`@PropertyLayout`]` annotation
 
 
+
+[data-background="#243"]
+=== Exercise: ...
+

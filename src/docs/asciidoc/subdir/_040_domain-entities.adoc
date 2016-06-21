@@ -1,6 +1,6 @@
 == Domain Entities
 
-* Domain entities are the building blocks of Apache Isis applications, being the persistent objects with which
+* *Domain entities* are the building blocks of Apache Isis applications, being the persistent objects with which
 end-users view and interact
 
 * From a programming perspective, they are basically pojos, with some JDO annotations
@@ -9,7 +9,7 @@ end-users view and interact
 
 === Object Title
 
-* Allows the end-user to link:http://isis.apache.org/guides/ugfun.html#_ugfun_how-tos_ui-hints_object-titles-and-icons[distinguish object instances] within the UI
+* The link:http://isis.apache.org/guides/ugfun.html#_ugfun_how-tos_ui-hints_object-titles-and-icons[title] allows the end-user to distinguish object instances within the UI
 ** Used as text for hyperlink to navigate to that object
 
 * Typically implemented using link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_reserved_title[`title()`] method: +
@@ -27,7 +27,7 @@ public String title() {
 
 === Object Icon
 
-* Helps distinguish different _types_ of object
+* The icon helps distinguish different _types_ of object, and sometimes their state
 
 * Typically a static `.png`, eg `Customer.png`
 
@@ -82,4 +82,7 @@ specify domain-layer semantics
 
 * use annotation to hook into UI lifecycle events for link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_titleUiEvent[title], link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_iconUiEvent[icon], link:http://isis.apache.org/guides/rgant.html#_rgant-DomainObjectLayout_cssClassUiEvent[CSS class].
 
+
+[data-background="#243"]
+=== Exercise: ...
 

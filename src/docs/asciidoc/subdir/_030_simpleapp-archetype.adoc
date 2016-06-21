@@ -1,4 +1,5 @@
-== Simpleapp archetype
+[data-background="#243"]
+== Exercise: Simpleapp archetype
 
 * Use the `simpleapp` archetype to link:http://isis.apache.org/guides/ugfun.html#_generating_the_app[generate] a new empty application
 
@@ -16,7 +17,8 @@ mvn archetype:generate  \
 
 
 
-=== Build the app
+[data-background="#243"]
+=== Exercise: Build the app
 
 * The newly generated app can be link:http://isis.apache.org/guides/ugfun.html#_building_the_app[built] from the command{nbsp}line: +
 +
@@ -32,7 +34,8 @@ mvn clean install
 
 
 
-=== Run the app
+[data-background="#243"]
+=== Exercise: Run the app
 
 * Run the app from the command line
 ** using link:http://isis.apache.org/guides/ugfun.html#_using_mvn_jetty_plugin[mvn jetty plugin]
@@ -54,7 +57,8 @@ mvn clean install
 ** `RecreateSimpleObjects` creates a complete set of entities
 
 
-=== Explore the Generated App (ctd)
+[data-background="#243"]
+=== Exercise: Explore the Generated App
 
 * the `integtests` module holds end-to-end integration tests running against in-memory DB and using the fixture script
 * the `app` module defines a subclass of the `AppManifest` class, defining the "scope" of the application

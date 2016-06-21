@@ -1,8 +1,11 @@
 == Prerequisites
 
-* Java and Maven
-* An IDE
-* Documentation bookmarks
+* Apache Isis is a Java framework, so to get started you'll need:
+
+** Java JDK
+** Apache Maven
+** an IDE
+
 
 
 
@@ -10,11 +13,11 @@
 
 * You'll need JDK 8 (preferred) or 7
 
-** Download link:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Java 8 JDK] or link:http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html[Java 7 JDK]
+** if necessary, download link:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Java 8 JDK] or link:http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html[Java 7 JDK] and install
 
-* You'll also need Apache Maven installed, with `mvn` on your `$PATH`
-
-** Download link:https://maven.apache.org/download.cgi[Apache Maven 3.x]
+* You'll also need Apache Maven to be installed
+** download link:https://maven.apache.org/download.cgi[Apache Maven 3.x]
+** ensure that `mvn` is on your `$PATH`
 
 
 
@@ -34,22 +37,22 @@
 
 === Documentation
 
-Worth bookmarking/downloading:
+This tutorial has plenty of links to useful documentation, but you might also want to:
 
-* link:http://isis.apache.org/documentation.html[Apache Isis documentation] page.
-* link:http://isis.apache.org/cheat-sheet.html[Cheat sheet]
-* link:http://isis.apache.org/screencasts.html[Screencasts]
+* bookmark the link:http://isis.apache.org/documentation.html[Apache Isis documentation] page.
+* download link:http://isis.apache.org/cheat-sheet.html[Cheat sheet]
+* bookmark/review these link:http://isis.apache.org/screencasts.html[Screencasts]
 
 
 
 [data-background="#243"]
 === Exercise: Set up your environment
 
-* Use the above notes to set up mvn and an IDE
+* Use the above notes to set up Java, Maven and an IDE
 
 * Optionally, install the file templates/live templates
 
-* If using Eclipse, install the DN plugin
+* If using Eclipse, install the DataNucleus plugin
 
 
 

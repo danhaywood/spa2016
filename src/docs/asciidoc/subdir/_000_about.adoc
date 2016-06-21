@@ -1,0 +1,25 @@
+== About this tutorial
+
+* This tutorial has been written using link:http://asciidoctor.org[AsciiDoctor] with
+link:http://lab.hakim.se/reveal-js/[reveal.js] as the rendering backend.
+* Use the arrow keys to move from topic to topic
+** *&#8595;* to the detail on current topic
+** *<-* and *->* for prev/next topic,
+** see the legend bottom right to see which direction(s) you can traverse
+* Press `*esc*` to go to an overview of the entire slide deck
+
+
+[data-background="#243"]
+=== Exercise: Navigate around
+
+* At the end of each section is an exercise slide, like this one
+** exercise slides have a slightly different background colour
+
+* Use the exercises as a starting point for your own explorations
+
+* Feel free to break off at any time and explore
+
+* For now, use the arrow keys and `*esc*` to quickly get an idea of what else is in this tutorial
+
+
+

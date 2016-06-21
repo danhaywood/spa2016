@@ -9,32 +9,9 @@ ifndef::sourcedir[:sourcedir: ../java]
 
 
 
-== About this tutorial
-
-* This tutorial has been written using link:http://asciidoctor.org[AsciiDoctor] with
-link:http://lab.hakim.se/reveal-js/[reveal.js] as the rendering backend.
-* Use the arrow keys to move from topic to topic
-** &#8595; to the detail on current topic
-** <- and -> for prev/next topic,
-** see the legend bottom right to see which direction(s) you can traverse
-* Press `*esc*` to go to an overview of the entire slide deck
 
 
-[data-background="#243"]
-=== Exercise: Navigate around
-
-* At the end of each section is an exercise slide, like this one
-** exercise slides have a slightly different background colour
-
-* Use the exercises as a starting point for your own explorations
-
-* Feel free to break off at any time and explore
-
-* For now, use the arrow keys and `*esc*` to quickly get an idea of what else is in this tutorial
-
-
-
-
+include::subdir/_000_about.adoc[]
 
 include::subdir/_010_getting-started.adoc[]
 
@@ -48,91 +25,30 @@ include::subdir/_050_value-properties.adoc[]
 
 include::subdir/_060_domain-services.adoc[]
 
-include::subdir/_070_associations.adoc[]
+include::subdir/_070_fixture-scripts.adoc[]
 
-include::subdir/_080_actions.adoc[]
+include::subdir/_080_associations.adoc[]
 
-include::subdir/_090_choices-and-autocomplete.adoc[]
+include::subdir/_090_actions.adoc[]
 
-include::subdir/_100_business-rules.adoc[]
+include::subdir/_100_choices-and-autocomplete.adoc[]
 
+include::subdir/_110_business-rules.adoc[]
 
+include::subdir/_120_unit-testing.adoc[]
 
+include::subdir/_130_integ-testing.adoc[]
 
-== Fixture scripts
+include::subdir/_140_view-models.adoc[]
 
+include::subdir/_150_decoupling.adoc[]
 
+include::subdir/_160_rest-api.adoc[]
 
-== Unit testing
+include::subdir/_170_add-ons.adoc[]
 
+include::subdir/_180_customisations.adoc[]
 
+include::subdir/_190_headless-mode.adoc[]
 
-== Integration testing
-
-
-
-== Fake data
-
-
-
-== View Models
-
-
-
-== Home page
-
-
-
-
-
-
-== Decoupling
-
-=== Event subscribers
-
-
-=== Mixins
-
-
-
-== Domain Services SPIs
-
-
-
-== REST API
-
-
-=== Swagger
-
-
-=== Alternative Representations
-
-
-
-== Add-ons
-
-
-=== Security
-
-* multi-tenancy
-
-=== Publishing
-
-
-=== Auditing
-
-
-=== Commands
-
-
-
-== Customisations
-
-=== CSS
-
-
-
-== Headless Mode
-
-* ie background commands
 

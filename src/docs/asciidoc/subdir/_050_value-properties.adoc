@@ -24,12 +24,17 @@ a primitive, a wrapper type, a Joda time type, or an Isis-specific type (eg ``Bl
 
 === Property optionality
 
-* You may need to add some link:http://www.datanucleus.org/products/accessplatform_4_1/jdo/fields_properties.html[JDO-specific] annotations
-* most commonly link:https://isis.apache.org/guides/rgant.html#_rgant-Column[`@Column(allowsNull=...)`]
+* In JDO, primitives are always mandatory but every other type is assumed optional
+
+* Apache Isis however all properties are assumed mandatory unless otherwise specified
+
+* Use the JDO link:https://isis.apache.org/guides/rgant.html#_rgant-Column[`@Column(allowsNull=...)`] annotation to specify optionality
+** recognized by Apache Isis also
+
 
 [TIP]
 ====
-If problems with annotations, a validation failure is thrown at start-up
+Other JDO annotations documented link:http://www.datanucleus.org/products/accessplatform_4_1/jdo/fields_properties.html[here]
 ====
 
 
@@ -115,4 +120,7 @@ reference property via `<property>` element
 * use link:http://isis.apache.org/guides/rgant.html#_rgant-Programmatic[`@Programmatic`] if want to ignore completely
 ** excluded from the metamodel
 
+
+[data-background="#243"]
+=== Exercise: ...
 
