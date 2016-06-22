@@ -31,7 +31,7 @@ include::subdir/_080_associations.adoc[]
 
 include::subdir/_090_actions.adoc[]
 
-include::subdir/_100_choices-and-autocomplete.adoc[]
+include::subdir/_100_action-reference-parameters.adoc[]
 
 include::subdir/_110_business-rules.adoc[]
 
@@ -47,8 +47,10 @@ include::subdir/_160_rest-api.adoc[]
 
 include::subdir/_170_add-ons.adoc[]
 
-include::subdir/_180_customisations.adoc[]
+include::subdir/_180_ui-customisations.adoc[]
 
-include::subdir/_190_headless-mode.adoc[]
+include::subdir/_190_mvn_plugin.adoc[]
+
+include::subdir/_200_wrap-up.adoc[]
 
 

@@ -1,24 +1,80 @@
 == Add-ons
 
+* The link:http://www.isisaddons.org/[Isis Addons] catalog provides:
+** implementations for multiple cross-cutting concerns
+*** security, publishing, auditing etc.
+** support for feature{nbsp}toggles
+
+* The link:http://catalog.incode.org/[Incode] catalog provides reusable business components
+
 
 === Security
 
-* multi-tenancy
+* The link:https://github.com/isisaddons/isis-module-security[security] module is the most commonly used add-on
+
+* User, role, permissions, functions
+** functions inferred from the Apache Isis metamodel
+
+* Users can be defined locally or delegated (eg from LDAP)
+
+* Permissions can be
+** scoped to package-level, class or member
+** are additive or subtractive
+*** "can only access ..." vs "can access all but..."
+
+* Includes an elegant design for multi-tenancy
+
 
 === Publishing
 
+* The link:https://github.com/isisaddons/isis-module-publishmq[publishmq] module implements the link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_PublisherService[`PublisherService`] SPI domain service
 
-=== Auditing
+* It publishes events (link:https://isis.apache.org/guides/rgcms.html#_rgcms_schema-ixn[XML representation] of an action invocation or a property edit) onto an link:activemq.apache.org[ActiveMQ] queue
+
+* Events are optionally persisted, for replay
+
+* Can associate "status message" objects with events
+** eg for logging/diagnostics, tracking conversations etc
 
 
 === Commands
 
+* The link:https://github.com/isisaddons/isis-module-command[command] module implements link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_CommandService[`CommandService`] and link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_BackgroundCommandService[`BackgroundCommandService`] SPI services
+
+* Like publishing, also captures and persists an link:https://isis.apache.org/guides/rgcms.html#_rgcms_schema-cmd[XML representation] of an action invocation or property edit
+
+* However, the intention is different: to allow the command execution to be deferred ("run in the background")
+
+
+=== Auditing
+
+* The link:https://github.com/isisaddons/isis-module-audit[audit] module implements the link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_AuditerService[`AuditerService`] SPI domain service
+
+* Persists every change to every property of every domain object as an audit entry
+
+* Audit entries correlate back to any persisted command or publishing events, making for a very complete audit record
+** command or publishing captures the "cause"
+** auditing captures the "effect"
+
+
 
 === Togglz
+
+* The link:https://github.com/isisaddons/isis-module-togglz[togglz] module integrates the link:http://www.togglz.org[Togglz] feature{nbsp}toggle library with Apache Isis
+
+** The link:https://github.com/isisaddons/isis-module-settings[settings] module is used to persist which toggles are enabled/disabled
+
+* The integration includes:
+** a web console to inspect toggles, and
+** a JUnit rule to allow toggles to be controlled within unit/integration tests
 
 
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: Integrate an add-on
 
+* Integrate one of the add-ons into your application
+
+** Each of the modules has a README with complete instructions
+** Each module also has a demo app; just check out the corresponding repo from github and run

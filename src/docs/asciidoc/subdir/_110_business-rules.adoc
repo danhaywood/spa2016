@@ -2,11 +2,11 @@
 
 * Use business rules to enforce pre-conditions on property edits/action invocations
 
-* hide object member (see it?)
+* hide object member (*see it?*)
 ** user prevented from even seeing the property/action
-* disable object member (use it?)
+* disable object member (*use it?*)
 ** greyed out, typically the object's state is invalid
-* validate (do it?)
+* validate (*do it?*)
 ** can edit the property/invoke the action, but validate the new value/action parameters
 
 

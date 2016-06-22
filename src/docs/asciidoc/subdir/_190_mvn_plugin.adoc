@@ -1,0 +1,47 @@
+== Apache Isis Maven plugin
+
+* The Maven plugin supports a variety of use cases:
+
+** validate the metamodel at build time
+** generate swagger specification
+** generate XSDs from view model DTOs
+
+
+=== Validation
+
+* When an Apache Isis app starts up, the metamodel is validated for semantic consistency
+** eg all supporting methods must match up with a class member
+
+* The link:https://isis.apache.org/guides/rgmvn.html#_rgmvn_validate[`validate`] goal performs this checking during build time, so that such errors are detected as early as possible
+
+
+
+=== Swagger Spec
+
+* The link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_api_SwaggerService[`SwaggerService`] allows the link:http://swagger.io/specification/[swagger spec] to be downloaded within the app
+
+* The link:http://isis.apache.org/guides/rgmvn.html#_rgmvn_swagger[`swagger`] goal allows the spec to be generated during build time
+
+* The build can therefore use this swagger spec in downstream build jobs, eg to build and compile client-side stubs in various programming languages
+
+
+
+=== XSD generation
+
+* JAXB-annotated link:http://isis.apache.org/guides/ugbtb.html#_ugbtb_view-models_jaxb[view models] are useful as DTOs for integrating systems, eg over SOAP or an ESB
+
+* For these scenarios, having an XSD schema corresponding to the JAXB model enables stronger validation in consumers and possibility to code-gen in other languages
+
+* The link:http://isis.apache.org/guides/rgmvn.html#_rgmvn_xsd[`xsd`] goal can be used to generate these XSDs
+** using the link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_api_JaxbService[`JaxbService`] under the covers
+
+
+
+[data-background="#243"]
+=== Exercise: leveraging mvn plugins
+
+* force a metamodel validation exception, eg by misspelling a supporting method
+
+* `mvn clean install` should fail (in the `dom` module).
+
+

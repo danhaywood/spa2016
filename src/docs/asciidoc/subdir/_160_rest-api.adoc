@@ -1,14 +1,66 @@
 == REST API
 
+* REST API implements the link:http://www.restfulobjects.org/[Restful Objects specification].
+** a generic hypermedia API for any domain object, defining both RESTful resources and representations
+** also implemented by link:https://github.com/NakedObjectsGroup/NakedObjectsFramework[Naked Objects framework] (.NET)
 
-=== Swagger
+* The REST API is inferred automatically from the domain object model
+** eg `objects/CUS:123/actions/placeOrder`
+
+* Can also return alternative REST representations
+** as per the `HTTP Accept` header
+
+
+
+=== Swagger UI
+
+* Can be accessed at link:http://localhost:8080/swagger-ui[http://localhost:8080/swagger-ui]
+** This is a javascript client that downloads the link:http://swagger.io/specification/[Swagger spec] for the domain
+
+* The swagger spec organizes resources into groups
+
+* In fact, three variants of the swagger spec, for different client types
+
+
+
+=== Swagger UI Access levels
+
+* The `public` API intended for external 3rd party clients
+** ie require backward compatibility
+** exposes only domain services with a link:https://isis.apache.org/guides/rgant.html#_rgant-DomainService_nature[nature] of `VIEW_REST_ONLY` and returning link:https://isis.apache.org/guides/ugbtb.html#_ugbtb_view-models_use-cases_dtos[view model DTO]s
+
+* The `private` API intended for internal clients
+** exposes all domain entities
+
+* The Swagger spec can also be downloaded from Wicket viewer
+** eg to code-generate client stubs in any language
+
+
+
+=== Direct Access
+
+* The Swagger UI only exposes the most commonly used parts of the REST API
+
+* Full access is available at link:http://localhost:8080/restful[http://localhost:8080/restful]
+
+* Test using a browser plugin such as link:https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman], link:https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo[Advanced REST Client] (both Chrome) or link:https://addons.mozilla.org/en-US/firefox/addon/restclient/[REST Client] (Firefox)
 
 
 === Alternative Representations
 
+* Alternative representations can be provided by implementing either link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_spi_ContentMappingService[`ContentMappingService`] or the lower-level
+
+* The framework provides one suchalternative to that defined by the Restful Objects spec
+** namely the link:https://isis.apache.org/guides/ugvro.html#_ugvro_simplified-representations["simplified"] representation
+** intended for use by common libraries such as link:http://angular-formly.com[Angular Formly]
 
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: exploring the REST API
 
+* Use the Swagger UI to explore the REST API available by your client
+
+* Add `VIEW_REST_ONLY` domain services to provide a restricted public API
+
+* (optional) checkout the link:github.com/incodehq/contactapp[contactapp], an Apache Isis app with a custom mobile app implemented using link:http://ionicframework.com/[Ionic framework] (on top of link:https://angularjs.org/[AngularJS])

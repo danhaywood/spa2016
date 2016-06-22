@@ -1,8 +1,9 @@
-== Action Reference Parameters
+== Action (Reference) Parameters
 
 * Action parameters referencing objects are specified using a drop-down
+** Also when editing reference properties
 
-* Several options available
+* The values shown in this drop-down may be supplied in variety of ways
 
 
 

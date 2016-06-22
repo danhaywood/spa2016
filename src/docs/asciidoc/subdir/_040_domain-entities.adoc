@@ -1,6 +1,6 @@
 == Domain Entities
 
-* *Domain entities* are the building blocks of Apache Isis applications, being the persistent objects with which
+* Domain entities are the building blocks of Apache Isis applications, being the persistent objects with which
 end-users view and interact
 
 * From a programming perspective, they are basically pojos, with some JDO annotations
