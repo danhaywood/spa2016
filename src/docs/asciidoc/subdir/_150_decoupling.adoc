@@ -1,16 +1,109 @@
 == Decoupling
 
+* You can use Apache Isis to build both monoliths{nbsp}and{nbsp}microservices
+** but often microservices = over-engineering
 
+* however, monoliths must be modular
+** otherwise, you'll end up with a link:http://www.laputan.org/mud/[big ball of mud]
 
-
-=== Event subscribers
-
-
+* the framework provides several tools to ensure modularity
 
 
 
 === Mixins
 
+* link:http://isis.apache.org/guides/ugbtb.html#_ugbtb_decoupling_mixins[Mixins] separate business logic (actions) from state (properties/collections)
+
+* mixes-in based on object's type (including interfaces)
+** deepens the (DDD) ubiquitous language
+** eg `Annotated`, `HasEvents`
+
+* Net effect: move behaviour from one module to another
+
+
+=== Mixins
+
+[source,java]
+----
+public class Customer implements Annotated {
+  ...
+}
+----
+
+* mixed-in using:
+
+[source,java]
+----
+@Mixin
+public class Annotated_annotations {
+  Annotated annotated;
+  public Annotated_annotations(Annotated annotated) {
+      this.annotated = annotated;
+  }
+  public List<Annotation> annotations() { ... }
+}
+----
+
+
+
+=== Event subscribers
+
+* Event subscribers are notified of events originating in some other module
+** can veto the interaction
+** can react to the interaction, eg cascade delete
+
+* Net effect: moves validation rules/triggers from one module to another
+
+
+
+=== Event subscribers (ctd)
+
+[source,java]
+----
+public class ToDoItem {
+  public static class CompletedEvent
+             extends ActionDomainEvent<ToDoItem> { }
+  @Action(domainEvent=CompletedEvent.class)
+  public ToDoItem completed() { ... }
+}
+----
+
+* subscribed to using:
+
+[source,java]
+----
+@DomainService
+public class SomeSubscriber
+               extends AbstractSubscriber {
+  @Subscribe
+  public void on(ToDoItem.CompletedEvent ev) { ... }
+}
+----
+
+
+
+=== `WrapperFactory`
+
+* The link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_WrapperFactory[`WrapperFactory`] should be used for cross-module interactions
+** ie across a trust-boundary
+
+* any domain events for the callee will be fired
+** akin to no-interface interaction between EJBs (though need to manually wrap)
+
+
+
+
+=== Poly module
+
+* The (non-ASF) http://github.com/isisaddons/isis-module-poly[Isis addons' poly] module defines an implementation pattern to decouple modules at the persistence layer
+** a.k.a the "table of two halves" pattern
+
+* at the domain object layer, associations defined via (Java) interfaces
+
+* at the database layer, regular foreign keys throughout
+
+* examples include link:https://github.com/incodehq/incode-module-alias[`alias`], link:https://github.com/incodehq/incode-module-commchannel[`commchannel`] and link:https://github.com/incodehq/incode-module-note[`note`]
+** all part of the (Apache-licensed) link:http://catalog.incode.org/[incode catalog].
 
 
 
