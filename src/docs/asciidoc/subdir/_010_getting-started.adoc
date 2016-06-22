@@ -55,5 +55,16 @@ of the framework
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: Choose a domain
+
+* Choose a small domain to work on throughout this tutorial
+** 3 or 4 entities, say
+
+* For example:
+** holiday cottage letting
+** lending library
+** restaurant reviews
+** contact manager
+** taxi-ride booking system
+
 

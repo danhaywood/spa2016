@@ -111,7 +111,7 @@ public class CustomerRepository {
 
 === Dependent choices
 
-* (Limited) support for link:http://isis.apache.org/guides/rgcms.html#_dependent_choices[dependent choices]
+* Support for link:http://isis.apache.org/guides/rgcms.html#_dependent_choices[dependent choices]
 
 [source,java]
 ----
@@ -131,7 +131,11 @@ public List<Subcategory> choices1UpdateCategory(
 ----
 
 
-
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: drop-downs and defaults
+
+* update existing behaviour to take advantage of  drop-downs
+
+* improve the user experience further by also offering default values for parameters
+** using the link:http://isis.apache.org/guides/rgcms.html#_rgcms_methods_prefixes_default[defaultXxx()] supporting method
 

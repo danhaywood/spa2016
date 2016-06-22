@@ -108,5 +108,10 @@ public class Customer {
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: entity associations
+
+* Associate the entities of your domain model
+** update `.layout.xml` as you do so for the new reference{nbsp}properties and collections
+
+* Update your fixture scripts to set up example objects
 

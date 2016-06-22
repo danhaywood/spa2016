@@ -113,5 +113,14 @@ public class Customer {
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: add actions
 
+* add new behaviour/responsibilities to your domain model objects using actions
+** you may be able to remove some repository/menus - generally the responsibility to create new objects resides with existing objects
+** update `.layout.xml` as you do so for the new reference{nbsp}properties and collections
+
+* rework fixture scripts to use new actions
+
+* consider removing the ability to edit properties
+** actions generally better capture the user's intent
+** use `@Property#editing` annotation

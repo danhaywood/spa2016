@@ -122,5 +122,13 @@ reference property via `<property>` element
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: flesh out your entity/ies
 
+* Add further value properties to your domain entity/ies
+** update `.layout.xml` as you do so
+
+* Consider which properties are mandatory, which are optional
+** can any properties be meaningfully defaulted?
+** perhaps use the link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_api_ClockService[`ClockService`] or link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_api_UserService[`UserService`] ?
+
+* Update domain services as required

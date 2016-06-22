@@ -40,8 +40,7 @@
 [data-background="#243"]
 === Exercise: leveraging mvn plugins
 
-* force a metamodel validation exception, eg by misspelling a supporting method
-
-* `mvn clean install` should fail (in the `dom` module).
+* Force a metamodel validation exception, eg by misspelling a supporting method
+** confirm that rebuilding the app fails in the `dom` module
 
 

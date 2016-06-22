@@ -1,0 +1,62 @@
+== More on Domain Services
+
+* This section considers some of the more advanced uses cases for domain services...
+
+
+=== @RequestScoped vs Singletons
+
+* Most domain services are singletons (application-scoped), but they can also be request-scoped, eg the framework-provided link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_Scratchpad[`Scratchpad`] service:
+
+[source,java]
+----
+@DomainService
+@RequestScoped
+public class Scratchpad {
+  public Object get(Object key) { ... }
+  public void put(Object key, Object value) { ... }
+  public void clear() { ... }
+}
+----
+
+
+
+=== Replacing framework services
+
+* Default framework implementations can be overridden using link:http://isis.apache.org/guides/rgant.html#_rgant-DomainServiceLayout_menuOrder[`@DomainServiceLayout#menuOrder()`] +
+
+[source,java]
+----
+import o.a.i.applib.services.message.MessageService;
+@DomainService
+@DomainServiceLayout(menuOrder="1")
+public class MyMessageService
+                      extends MessageService {
+  ...
+}
+----
+
+* The lower `#menuOrder` results in the replacement implementation being injectd rather than the default.
+
+
+
+=== Injecting lists (advanced use case)
+
+* It's also possible to inject list of services: +
++
+[source,java]
+----
+@DomainService
+public class Customer {
+  ...
+  @Inject
+  List<Printer> printers;
+}
+----
+
+* All services implementing the type will be injected
+
+* Useful if decorating a framework-provided domain service
+
+
+
+

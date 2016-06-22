@@ -93,5 +93,9 @@ public class DomainAppAppManifestWithFixtures
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: add fixture scripts
+
+* Develop one or more fixture scripts to represent typical starting scenarios within your application
+
+* Create a custom `AppManifest` to automatically install this fixture each time the app is run
 

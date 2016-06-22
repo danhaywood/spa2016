@@ -84,5 +84,14 @@ specify domain-layer semantics
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: titles and icons
 
+* Implement a title to identify your domain entity
+** you may need to add additional properties (covered in next section in more detail)
+
+* Select an icon, eg using an icon from link:https://icons8.com[icons8.com] or similar
+
+* Experiment with `.layout.xml` file
+** edit it within an IDE (code completion should work)
+** rebuild (in IntelliJ: "reload changed classes")
+** what happens if the file is malformed?

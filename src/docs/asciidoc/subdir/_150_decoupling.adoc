@@ -110,5 +110,11 @@ public class SomeSubscriber
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: refactoring
 
+* Refactor existing action(s) as mixins
+
+* Refactor business rules as subscribers
+
+* Update impacted integration tests in both cases
+** use link:https://isis.apache.org/guides/rgsvc.html#_rgsvc_api_FactoryService[`FactoryService#mixin(...)`] helper method

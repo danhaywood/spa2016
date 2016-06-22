@@ -82,5 +82,8 @@ public class Product {
 
 
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: business rules
 
+* Identify pre-conditions for existing actions
+
+* Implement as either a hide, disable or validate

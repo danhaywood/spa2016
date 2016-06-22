@@ -41,7 +41,8 @@ mvn clean install
 ** using link:http://isis.apache.org/guides/ugfun.html#_using_mvn_jetty_plugin[mvn jetty plugin]
 
 * Run the app from the IDE
-** using a link:http://isis.apache.org/guides/ugfun.html#_from_within_the_ide[launch configuration]).
+** using a link:http://isis.apache.org/guides/ugfun.html#_from_within_the_ide[launch configuration])
+*** `org.apache.isis.WebServer`
 ** get to grips with the DataNucleus Enhancer
 
 
@@ -80,5 +81,5 @@ mvn clean install
 * rename the `RecreateSimpleObjects` fixture
 ** eg `RecreateCustomers`
 
-
+* add further entities for your domain model
 

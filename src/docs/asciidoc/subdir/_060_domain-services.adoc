@@ -13,23 +13,23 @@
 
 === Domain Service Use Cases
 
-* repository for an entity, eg `CustomerRepository`
+* Repository for an entity, eg `CustomerRepository`
 
-* menu actions, eg `CustomerMenu`
+* Menu actions, eg `CustomerMenu`
 
-* facade over some technology, eg `BarcodeScanner`
+* Facade over some technology, eg `BarcodeScanner`
 
 
 
 === Framework-provided services
 
-* link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_FactoryService[`FactoryService`] to instantiate objects
+* Use link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_FactoryService[`FactoryService`] to instantiate objects
 
-* link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_RepositoryService[`RepositoryService`] supports querying and persistence
+* Use link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_RepositoryService[`RepositoryService`] for querying and persistence
 
-* link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_MessageService[`MessageService`] to raise (toast pop-up) messages
+* Use link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_MessageService[`MessageService`] to raise (toast pop-up) messages
 
-* Many others in the link:http://isis.apache.org/guides/rgsvc.html#_rgsvc[domain services guide]
+* Many others can be found in the link:http://isis.apache.org/guides/rgsvc.html#_rgsvc[domain services guide]
 
 
 
@@ -125,63 +125,9 @@ public class DomainAppAppManifest
 
 
 
-=== @RequestScoped vs Singletons
-
-* Domain services can also be request-scoped
-
-* eg the framework-provided link:http://isis.apache.org/guides/rgsvc.html#_rgsvc_api_Scratchpad[`Scratchpad`] service:
-
-[source,java]
-----
-@DomainService
-@RequestScoped
-public class Scratchpad {
-  public Object get(Object key) { ... }
-  public void put(Object key, Object value) { ... }
-  public void clear() { ... }
-}
-----
-
-
-
-=== Replacing framework services
-
-* Default framework implementations can be overridden using link:http://isis.apache.org/guides/rgant.html#_rgant-DomainServiceLayout_menuOrder[`@DomainServiceLayout#menuOrder()`] +
-
-[source,java]
-----
-import o.a.i.applib.services.message.MessageService;
-@DomainService
-@DomainServiceLayout(menuOrder="1")
-public class MyMessageService
-                      extends MessageService {
-  ...
-}
-----
-
-* The lower `#menuOrder` results in the replacement implementation being injectd rather than the default.
-
-
-
-=== Injecting lists (advanced use case)
-
-* It's also possible to inject list of services: +
-+
-[source,java]
-----
-@DomainService
-public class Customer {
-  ...
-  @Inject
-  List<Printer> printers;
-}
-----
-
-* All services implementing the type will be injected
-
-* Useful if decorating a framework-provided domain service
-
-
 [data-background="#243"]
-=== Exercise: ...
+=== Exercise: repositories and menus
 
+* Split out domain services for repository vs menu, and inject the former into the latter
+
+* Use link:http://isis.apache.org/guides/rgant.html#_rgant-DomainServiceLayout[`@DomainServiceLayout#named`] as a mechanism to group several related menus together, with a menu separator shown between each

@@ -45,6 +45,8 @@ include::subdir/_150_decoupling.adoc[]
 
 include::subdir/_160_rest-api.adoc[]
 
+include::subdir/_165_more-on-domain-services.adoc[]
+
 include::subdir/_170_add-ons.adoc[]
 
 include::subdir/_180_ui-customisations.adoc[]
