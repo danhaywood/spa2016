@@ -21,51 +21,6 @@
 
 
 
-=== Configure Settings to use beta
-
-
-* You can use the latest beta of the framework by adding a couple of changes to `~/m2/settings.xml`.
-
-* This will set up mvn to locate the `1.13.0-beta1` (rather than `1.12.2`)
-
-[TIP]
-====
-These steps are optional but recommended - peppered throughout the documentation you'll see we indicate any forthcoming features by specifying "(as of `1.13.0-SNAPSHOT`)"; making this change means that you'll pick up those new features.
-====
-
-
-=== In `<profiles>` section:
-
-
-[source,xml]
-----
-<profile>
-  <id>beta-release</id>
-  <repositories>
-    <repository>
-      <id>beta-release</id>
-      <name>Isis and Addons Beta Releases</name>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </releases>
-      <url>http://bitnami-artifactory-0af9.cloudapp.net/artifactory/libs-release-local</url>
-      <layout>default</layout>
-    </repository>
-  </repositories>
-</profile>
-----
-
-=== In `<activeProfiles>` section:
-
-[source,xml]
-----
-<activeProfile>beta-release</activeProfile>
-----
-
-
-
 === IDEs
 
 * We strongly recommend you use an IDE

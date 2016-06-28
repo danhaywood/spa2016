@@ -1,24 +1,5 @@
 [data-background="#243"]
-== Exercise: Simpleapp archetype (using beta)
-
-* Use the `simpleapp` archetype to link:http://isis.apache.org/guides/ugfun.html#_generating_the_app[generate] a new empty application
-
-[source,bash]
-----
-mvn archetype:generate  \
-    -D archetypeGroupId=org.apache.isis.archetype \
-    -D archetypeArtifactId=simpleapp-archetype \
-    -D archetypeVersion=1.13.0-beta1 \
-    -D archetypeCatalog=beta-release \
-    -D groupId=com.mycompany \
-    -D artifactId=myapp \
-    -D version=1.0-SNAPSHOT \
-    -B
-----
-
-
-[data-background="#243"]
-=== Exercise: Simpleapp archetype (using stable)
+== Exercise: Simpleapp archetype
 
 * Alternatively, you can use the most recent released version of the framework using:
 
