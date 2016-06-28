@@ -1,4 +1,4 @@
-== Getting Started
+== A Quick Introduction
 
 * Apache Isis is a Java framework that uses link:http://wicket.apache.org[Apache Wicket] and
 link:http://resteasy.jboss.org/[JBoss RestEasy] (JAX-RS) for its presentation layer, and link:http://datanucleus.org[DataNucleus] for its persistence layer (using link:http://www.datanucleus.org/products/datanucleus/jdo/api.html[JDO]).

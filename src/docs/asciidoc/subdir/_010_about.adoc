@@ -1,7 +1,7 @@
 == About this tutorial
 
-* This tutorial has been written using link:http://asciidoctor.org[AsciiDoctor] with
-link:http://lab.hakim.se/reveal-js/[reveal.js] as the rendering backend.
+* This tutorial lives at link:www.danhaywood.com/spa2016[www.danhaywood.com/spa2016]
+** (in case you're wondering), written using link:http://asciidoctor.org[AsciiDoctor] with link:http://lab.hakim.se/reveal-js/[reveal.js] as the rendering backend.
 * Use the arrow keys to move from topic to topic
 ** *&#8595;* to the detail on current topic
 ** *<-* and *->* for prev/next topic,

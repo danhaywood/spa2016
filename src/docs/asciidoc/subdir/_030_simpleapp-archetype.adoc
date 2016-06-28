@@ -1,7 +1,26 @@
 [data-background="#243"]
-== Exercise: Simpleapp archetype
+== Exercise: Simpleapp archetype (using beta)
 
 * Use the `simpleapp` archetype to link:http://isis.apache.org/guides/ugfun.html#_generating_the_app[generate] a new empty application
+
+[source,bash]
+----
+mvn archetype:generate  \
+    -D archetypeGroupId=org.apache.isis.archetype \
+    -D archetypeArtifactId=simpleapp-archetype \
+    -D archetypeVersion=1.13.0-beta1 \
+    -D archetypeCatalog=beta-release \
+    -D groupId=com.mycompany \
+    -D artifactId=myapp \
+    -D version=1.0-SNAPSHOT \
+    -B
+----
+
+
+[data-background="#243"]
+=== Exercise: Simpleapp archetype (using stable)
+
+* Alternatively, you can use the most recent released version of the framework using:
 
 [source,bash]
 ----
@@ -41,7 +60,7 @@ mvn clean install
 ** using link:http://isis.apache.org/guides/ugfun.html#_using_mvn_jetty_plugin[mvn jetty plugin]
 
 * Run the app from the IDE
-** using a link:http://isis.apache.org/guides/ugfun.html#_from_within_the_ide[launch configuration])
+** using a link:http://isis.apache.org/guides/ugfun.html#_from_within_the_ide[launch configuration]
 *** `org.apache.isis.WebServer`
 ** get to grips with the DataNucleus Enhancer
 

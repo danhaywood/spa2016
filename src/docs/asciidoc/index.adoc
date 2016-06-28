@@ -11,9 +11,9 @@ ifndef::sourcedir[:sourcedir: ../java]
 
 
 
-include::subdir/_000_about.adoc[]
+include::subdir/_000_introduction.adoc[]
 
-include::subdir/_010_getting-started.adoc[]
+include::subdir/_010_about.adoc[]
 
 include::subdir/_020_prerequisites.adoc[]
 
